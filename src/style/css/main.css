@@ -1,0 +1,30 @@
+::-webkit-scrollbar {
+  display: none; }
+
+.Intro {
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.75fr;
+  font-size: 2em; }
+  .Intro .linkBar {
+    width: 2em;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .Intro .linkBar .links {
+      display: inline-flex;
+      flex-direction: column; }
+      .Intro .linkBar .links .github {
+        margin-bottom: .75em; }
+  .Intro .text {
+    display: grid;
+    place-items: center;
+    place-content: center; }
+    .Intro .text .iAm {
+      padding-bottom: 2em; }
+
+/*# sourceMappingURL=main.css.map */
