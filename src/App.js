@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <Intro />
-        <WriteUp />
+        <WriteUp index={0} />
       </div>
     );
   }
