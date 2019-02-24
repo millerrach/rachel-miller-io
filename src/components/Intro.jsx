@@ -24,7 +24,7 @@ class Intro extends Component {
       },
       linkBarStyle: {
         gridArea: "1 / 2 / 2 / 3",
-        padding: "1em 0"
+        padding: "1em 0",
         // display: "flex",
         // flexDirection: "column",
         // justifyContent: "space-between",
@@ -32,7 +32,7 @@ class Intro extends Component {
       linksStyle: {
         // display: "inline-flex",
         // flexDirection: "column",
-      },
+      }
     };
     const { width } = this.props;
     return (

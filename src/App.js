@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Intro from "./components/Intro.jsx";
 import WriteUp from "./components/WriteUp.jsx";
+import JuicelineExamples from './components/JuicelineExamples.jsx';
 
 class App extends Component {
   state = {
@@ -20,11 +21,12 @@ class App extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
   render() {
-    const {width, height} = this.state;
+    const { width } = this.state;
     return (
       <div className="App">
         <Intro width={width} />
         <WriteUp index={0} />
+        <JuicelineExamples />
       </div>
     );
   }
