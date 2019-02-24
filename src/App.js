@@ -1,13 +1,29 @@
 import React, { Component } from "react";
-import "./style/css/main.css";
 import Intro from "./components/Intro.jsx";
 import WriteUp from "./components/WriteUp.jsx";
 
 class App extends Component {
+  state = {
+    width: 0,
+    height: 0
+  };
+  componentWillMount() {
+    this.updateDimensions();
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
+  }
+  updateDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
   render() {
+    const {width, height} = this.state;
     return (
       <div className="App">
-        <Intro />
+        <Intro width={width} />
         <WriteUp index={0} />
       </div>
     );
