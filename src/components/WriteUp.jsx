@@ -7,7 +7,21 @@ const writeUps = [
     description:
       "A progressive web app that allows customers to see what's offered at the current moment.",
     stack: ["Figma", "React", "JS", "CSS3", "Sass"]
-  }
+  },
+  {
+    name: "Honda",
+    location: "",
+    description:
+      "This project was done for Portlight Technologies. It’s a touch-screen app that ‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
+    stack: ["JS", "HTML5", "CSS3", "Sass"]
+  },
+  {
+    name: "Jubeck Brewery",
+    location: "",
+    description:
+      "This project was done for Jubeck New World Brewing. They were looking to track their beer memberships but couldn’t find a solution, so they came to us for a custom app. This allows them to add pints and growlers and also edit and renew memberships.",
+    stack: ["React", "Redux", "MUI", "JS", "CSS3", "Sass"]
+  },
 ];
 
 class WriteUp extends Component {
@@ -27,14 +41,21 @@ class WriteUp extends Component {
       description: {
         gridArea: "2 / 2 / 3 / 7",
       },
-      stack: {
+      stackShort: {
         gridArea: "1 / 10 / 3 / 12",
         placeSelf: "end",
         lineHeight: "1.3"
+      },
+      stackLong: {
+        gridArea: "2 / 10 / 3 / 12",
+        alignSelf: "start",
+        justifySelf: "end",
+        lineHeight: "1.3"
       }
     };
-    const index = this.props.index;
+    const { index, short } = this.props;
     const wui = writeUps[index];
+    const lengthStack = short ? styles.stackShort : styles.stackLong;
     return (
       <div className="WriteUp" style={styles.WriteUpStyle}>
         <div className="nameLocation" style={styles.nameLocation}>
@@ -42,7 +63,7 @@ class WriteUp extends Component {
           <div className="location">{wui.location}</div>
         </div>
         <div className="description" style={styles.description}>{wui.description}</div>
-        <div className="stack" style={styles.stack}>
+        <div className="stack" style={lengthStack}>
           {wui.stack.map((each, i) => (
             <div className="skill" key={i}>
               {each}

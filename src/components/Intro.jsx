@@ -43,9 +43,9 @@ class Intro extends Component {
               src={github}
               alt="github"
               className="github"
-              style={{ marginBottom: ".75em" }}
+              style={{ marginBottom: ".75em", height: "1em" }}
             />
-            <img src={email} alt="email" />
+            <img src={email} alt="email" style={{ height: "1em" }} />
           </div>
           {width > 600 ? <img src={down} alt="down" /> : null}
         </div>

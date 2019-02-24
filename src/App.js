@@ -25,8 +25,9 @@ class App extends Component {
     return (
       <div className="App">
         <Intro width={width} />
-        <WriteUp index={0} />
+        <WriteUp index={0} short={true} />
         <JuicelineExamples />
+        <WriteUp index={1} short={false} />
       </div>
     );
   }
