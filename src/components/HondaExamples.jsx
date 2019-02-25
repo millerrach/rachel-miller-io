@@ -10,8 +10,8 @@ class HondaExamples extends Component {
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 img2 img2 img2 img2 img2 img2 ."` :
             `
-                ". img1 img1 img1 img1 img1 img1 img1 img1 img1 .    ."
-                ". .    img2 img2 img2 img2 img2 img2 img2 img2 img2 ."`;
+                ". .    img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
+                ". img2 img2 img2 img2 img2 img2 img2 img2 img2 .    ."`;
         const styles = {
             HondaExamples: {
                 backgroundColor: "rgba(214, 229, 226, .7",
@@ -21,8 +21,8 @@ class HondaExamples extends Component {
                 gridRowColumns: "auto",
                 gridTemplateAreas: areas,
             },
-            honda_1: { gridArea: "img1", padding: "20% 0 20% 0" },
-            honda_2: { gridArea: "img2", padding: "0 0 25% 0" },
+            honda_1: { gridArea: "img1", margin: "20% 0 20% 0" },
+            honda_2: { gridArea: "img2", margin: "0 0 25% 0" },
         }
         return (
             <div className="HondaExamples" style={styles.HondaExamples}>

@@ -43,11 +43,11 @@ class WriteUp extends Component {
         gridTemplateColumns: "repeat(12, 1fr)",
         gridTemplateRows: "min-content 1fr",
         gridTemplateAreas: areas,
-        padding: "3em 0",
+        margin: "3em 0",
       },
       nameLocation: {
         gridArea: "name",
-        paddingBottom: "1em",
+        marginBottom: "1em",
       },
       description: {
         gridArea: "desc",

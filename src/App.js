@@ -3,6 +3,7 @@ import Intro from "./components/Intro.jsx";
 import WriteUp from "./components/WriteUp.jsx";
 import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
+import JubeckExamples from './components/JubeckExamples.jsx';
 
 class App extends Component {
   state = {
@@ -30,6 +31,8 @@ class App extends Component {
         <JuicelineExamples width={width} />
         <WriteUp width={width} index={1} short={false} />
         <HondaExamples width={width} />
+        <WriteUp width={width} index={2} short={false} />
+        <JubeckExamples width={width} />
       </div>
     );
   }

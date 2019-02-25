@@ -28,18 +28,18 @@ class JuicelineExamples extends Component {
             },
             juicelineDesktop: {
                 gridArea: "img1",
-                padding: "20% 0 20% 0",
+                margin: "20% 0 20% 0",
             },
             juicelineMobile: {
                 gridArea: "img2",
-                paddingBottom: sm ? "20%" : null,
+                marginBottom: sm ? "20%" : null,
             },
             juicelineList: {
                 gridArea: "img3",
             },
             juicelineAdmin: {
                 gridArea: "img4",
-                padding: "20% 0 25% 0",
+                margin: "20% 0 25% 0",
             },
         }
         return (
