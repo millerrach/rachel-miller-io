@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <Intro width={width} />
         <WriteUp width={width} index={0} short={true} />
-        <JuicelineExamples />
+        <JuicelineExamples width={width} />
         <WriteUp width={width} index={1} short={false} />
       </div>
     );

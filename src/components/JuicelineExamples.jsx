@@ -6,18 +6,30 @@ import juicelineAdmin from '../images/portfolio/juicelineAdmin.png';
 
 class JuicelineExamples extends Component {
     render() {
+        const { width } = this.props;
+        const sm = width < 600;
+        const areas = sm ? `
+                ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
+                ". .    img2 img2 img2 img2 img2 img2 img2 img2 .    ."
+                ". .    img3 img3 img3 img3 img3 img3 img3 img3 .    ."
+                ". img4 img4 img4 img4 img4 img4 img4 img4 img4 img4 ."` :
+            `
+                ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
+                ". img2 img2 img2 img2 .    .    img3 img3 img3 img3 ."
+                ". img4 img4 img4 img4 img4 img4 img4 img4 img4 img4 ."`;
         const styles = {
             JuicelineExamples: {
                 backgroundColor: "#F7F7F7",
                 width: "100%",
                 display: "grid",
                 gridTemplateColumns: "repeat(12, 1fr)",
-                gridRowColumns: "repeat(3, 1fr)",
+                gridRowColumns: "auto",
+                gridTemplateAreas: areas,
             },
-            juicelineDesktop: { gridArea: "1 / 2 / 2 / 12", padding: "6em 0 4em 0" },
-            juicelineMobile: { gridArea: "2 / 2 / 3 / 6" },
-            juicelineList: { gridArea: "2 / 8 / 3 / 12", paddingTop: "8em" },
-            juicelineAdmin: { gridArea: "3 / 2 / 4 / 12", padding: "4em 0 6em 0" },
+            juicelineDesktop: { gridArea: "img1", padding: "6em 0 4em 0" },
+            juicelineMobile: { gridArea: "img2" },
+            juicelineList: { gridArea: "img3", paddingTop: "8em" },
+            juicelineAdmin: { gridArea: "img4", padding: "4em 0 6em 0" },
         }
         return (
             <div className="JuicelineExamples" style={styles.JuicelineExamples} >
