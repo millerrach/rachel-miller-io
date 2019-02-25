@@ -26,34 +26,44 @@ const writeUps = [
 
 class WriteUp extends Component {
   render(props) {
+    const { width, index, short } = this.props;
+    const sm = width < 600;
+    const areas = short ?
+      `
+        ".    name name name name name name name name stac stac .   "
+        ".    desc desc desc desc desc desc desc .    stac stac .   "` :
+
+      `
+        ".    name name name name name name name name .    .    .   "
+        ".    desc desc desc desc desc desc desc .    stac stac .   "`;
     const styles = {
       WriteUpStyle: {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
         gridTemplateRows: "min-content 1fr",
+        gridTemplateAreas: areas,
         padding: "3em 0",
       },
       nameLocation: {
-        gridArea: "1 / 2 / 2 / 7",
+        gridArea: "name",
         paddingBottom: "1em",
       },
       description: {
-        gridArea: "2 / 2 / 3 / 7",
+        gridArea: "desc",
       },
       stackShort: {
-        gridArea: "1 / 10 / 3 / 12",
+        gridArea: "stac",
         placeSelf: "end",
         lineHeight: "1.3"
       },
       stackLong: {
-        gridArea: "2 / 10 / 3 / 12",
+        gridArea: "stac",
         alignSelf: "start",
         justifySelf: "end",
         lineHeight: "1.3"
       }
     };
-    const { index, short } = this.props;
     const wui = writeUps[index];
     const lengthStack = short ? styles.stackShort : styles.stackLong;
     return (
