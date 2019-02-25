@@ -13,26 +13,22 @@ class Intro extends Component {
         height: "100vh",
         display: "grid",
         gridTemplateColumns: "repeat(12, 1fr)",
-        grideTemplateRows: "min-content .75fr",
+        gridTemplateRows: ".25fr .75fr",
+        gridTemplateAreas: `
+        ". links .     .     .     .     .     .     .     .     . ."
+        ". about about about about about about about about about . ."`,
         fontSize: "1.75em"
       },
-      textStyle: {
-        gridColumn: "2 / 12",
-        display: "grid",
-        placeItems: "center",
-        placeContent: "center"
-      },
       linkBarStyle: {
-        gridArea: "1 / 2 / 2 / 3",
-        padding: "1em 0",
-        // display: "flex",
-        // flexDirection: "column",
-        // justifyContent: "space-between",
+        gridArea: "links",
+        alignSelf: "center",
       },
-      linksStyle: {
-        // display: "inline-flex",
-        // flexDirection: "column",
-      }
+      linksStyle: {},
+      textStyle: {
+        gridColumn: "about",
+        display: "grid",
+        alignSelf: "center",
+      },
     };
     const { width } = this.props;
     return (
