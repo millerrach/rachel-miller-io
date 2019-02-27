@@ -1,41 +1,41 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Intro from "./components/Intro.jsx";
 import WriteUp from "./components/WriteUp.jsx";
 import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
 import JubeckExamples from './components/JubeckExamples.jsx';
 
-class App extends Component {
-  state = {
-    width: 0,
-    height: 0
-  };
-  componentWillMount() {
-    this.updateDimensions();
+const App = () => {
+  function getSize() {
+    return {
+      innerHeight: window.innerHeight,
+      innerWidth: window.innerWidth,
+    };
   }
-  componentDidMount() {
-    window.addEventListener("resize", this.updateDimensions.bind(this));
+  let [windowSize, setWindowSize] = useState(getSize());
+
+  function handleResize() {
+    setWindowSize(getSize());
   }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions.bind(this));
-  }
-  updateDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
-  render() {
-    const { width } = this.state;
-    return (
-      <div className="App">
-        <Intro width={width} />
-        <WriteUp width={width} index={0} short={true} />
-        <JuicelineExamples width={width} />
-        <WriteUp width={width} index={1} short={false} />
-        <HondaExamples width={width} />
-        <WriteUp width={width} index={2} short={false} />
-        <JubeckExamples width={width} />
-      </div>
-    );
-  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  const width = windowSize.innerWidth;
+  return (
+    <div className="App">
+      <Intro width={width} />
+      <WriteUp width={width} index={0} short={true} />
+      <JuicelineExamples width={width} />
+      <WriteUp width={width} index={1} short={false} />
+      <HondaExamples width={width} />
+      <WriteUp width={width} index={2} short={false} />
+      <JubeckExamples width={width} />
+    </div>
+  );
 }
 
 export default App;
