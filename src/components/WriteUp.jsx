@@ -24,8 +24,7 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const [toggleStack, setStack] = useState(false);
-  const { index, bottomAlign } = props;
+  const { index } = props;
   const styles = {
     WriteUpStyle: {
       width: "100%",
@@ -50,16 +49,19 @@ const WriteUp = props => {
   const wui = writeUps[index];
   const skills = wui.stack;
   const nameLocaDesc = [wui.name, wui.location, wui.description]
+  //react-spring
+  const [toggle, setToggle] = useState(false);
   const config = { mass: 10, tension: 1500, friction: 200 };
   const trail = useTrail(skills.length, {
     config,
-    opacity: toggleStack ? 1 : 0,
-    x: toggleStack ? 0 : 20,
+    opacity: toggle ? 1 : 0,
+    x: toggle ? 0 : 20,
     from: { opacity: 0, x: 20 },
   })
   const _toggle = () => {
-    setStack(true);
+    setToggle(true);
   }
+  //end react-spring
   return (
     <Waypoint onEnter={_toggle}>
       <div className="WriteUp" style={styles.WriteUpStyle}>
@@ -73,14 +75,6 @@ const WriteUp = props => {
             </animated.div>
           ))}
         </div>
-        {/* 
-        <div className="nameLocation" style={styles.nameLocation}>
-          <div className="name">{wui.name}</div>
-          <div className="location">{wui.location}</div>
-        </div>
-        <div className="description" style={styles.description}>
-          {wui.description}
-        </div> */}
         <div className="stack" style={styles.stack}>
           {trail.map(({ x, ...rest }, i) => (
             <animated.div
