@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Waypoint } from 'react-waypoint';
-import { useTrail, useSpring, animated } from 'react-spring'
+import { useTrail, animated } from 'react-spring'
 
 const writeUps = [
   {
@@ -58,10 +58,10 @@ const WriteUp = props => {
     x: toggle ? 0 : 20,
     from: { opacity: 0, x: 20 },
   })
+  //end react-spring
   const _toggle = () => {
     setToggle(true);
   }
-  //end react-spring
   return (
     <Waypoint onEnter={_toggle}>
       <div className="WriteUp" style={styles.WriteUpStyle}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import email from "../images/email.svg";
 import github from "../images/github.svg";
 import down from "../images/down.svg";
@@ -28,6 +28,7 @@ const Intro = props => {
     linkBarStyle: {
       gridArea: "links",
       justifySelf: sm ? "start" : "center",
+      width: "1em",
       alignSelf: sm ? "center" : null,
       display: "grid",
       padding: !sm ? "2em 0" : null,
@@ -46,15 +47,15 @@ const Intro = props => {
             src={github}
             alt="github"
             className="github"
-            style={{ marginBottom: ".75em", height: "1em" }}
+            style={{ marginBottom: ".75em", width: "1em" }}
           />
-          <img src={email} alt="email" style={{ height: "1em" }} />
+          <img src={email} alt="email" style={{ width: "1em" }} />
         </div>
         {width > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 40 }} /> : null}
       </div>
       <div className="text" style={styles.textStyle}>
         <div style={{ paddingBottom: "1em" }}>
-          I am Rachel Miller, Front-End Web Developer.
+          I am Rachel Miller, Front-End Web Developer and Designer.
           </div>
         <div>
           Working freelance, with a focus on React and custom progressive web

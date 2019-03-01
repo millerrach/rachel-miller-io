@@ -25,8 +25,8 @@ const HondaExamples = props => {
     }
     return (
         <div className="HondaExamples" style={styles.HondaExamples}>
-            <img src={honda_1} className="honda_1" style={styles.honda_1} alt="Honda Example 1" />
-            <img src={honda_2} className="honda_2" style={styles.honda_2} alt="Honda Example 2" />
+            <img src={honda_1} className="honda_1 example" style={styles.honda_1} alt="Honda Example 1" />
+            <img src={honda_2} className="honda_2 example" style={styles.honda_2} alt="Honda Example 2" />
         </div>
     );
 }

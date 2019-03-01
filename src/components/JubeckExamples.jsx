@@ -25,8 +25,8 @@ const JubeckExamples = props => {
     }
     return (
         <div className="JubeckExamples" style={styles.JubeckExamples}>
-            <img src={jubeck_1} className="jubeck_1" style={styles.jubeck_1} alt="Jubeck Example 1" />
-            <img src={jubeck_2} className="jubeck_2" style={styles.jubeck_2} alt="Jubeck Example 2" />
+            <img src={jubeck_1} className="jubeck_1 example" style={styles.jubeck_1} alt="Jubeck Example 1" />
+            <img src={jubeck_2} className="jubeck_2 example" style={styles.jubeck_2} alt="Jubeck Example 2" />
         </div>
     );
 }
