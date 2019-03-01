@@ -51,11 +51,11 @@ const Intro = props => {
           />
           <img src={email} alt="email" style={{ width: "1em" }} />
         </div>
-        {width > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 40 }} /> : null}
+        {width > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 30 }} /> : null}
       </div>
       <div className="text" style={styles.textStyle}>
         <div style={{ paddingBottom: "1em" }}>
-          I am Rachel Miller, Front-End Web Developer and Designer.
+          I'm Rachel Miller, Front-End Web Developer and Designer.
           </div>
         <div>
           Working freelance, with a focus on React and custom progressive web

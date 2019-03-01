@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Waypoint } from 'react-waypoint';
-import { useSpring, animated } from 'react-spring'
 import juicelineDesktop from '../images/portfolio/juicelineDesktop.png';
 import juicelineMobile from '../images/portfolio/juicelineMobile.png';
 import juicelineList from '../images/portfolio/juicelineList.png';
 import juicelineAdmin from '../images/portfolio/juicelineAdmin.png';
+
+const tlDuration = "transform 2s";
 
 const JuicelineExamples = props => {
     const { width } = props;
@@ -22,7 +23,6 @@ const JuicelineExamples = props => {
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 .    .    img3 img3 img3 img3 ."
                 ". img4 img4 img4 img4 img4 img4 img4 img4 img4 img4 ."`;
-    const tlDuration = "transform 2s";
     const styles = {
         JuicelineExamples: {
             backgroundColor: "#F7F7F7",
