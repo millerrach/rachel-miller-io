@@ -28,15 +28,16 @@ const App = () => {
   }, []);
 
   const width = windowSize.innerWidth;
+  const transition = "transform 2s";
   return (
     <div className="App">
       <Intro width={width} />
       <WriteUp index={0} />
-      <JuicelineExamples width={width} />
+      <JuicelineExamples width={width} transition={transition} />
       <WriteUp width={width} index={1} />
-      <HondaExamples width={width} />
+      <HondaExamples width={width} transition={transition} />
       <WriteUp width={width} index={2} />
-      <JubeckExamples width={width} />
+      <JubeckExamples width={width} transition={transition} />
     </div>
   );
 }

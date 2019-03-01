@@ -5,10 +5,9 @@ import juicelineMobile from '../images/portfolio/juicelineMobile.png';
 import juicelineList from '../images/portfolio/juicelineList.png';
 import juicelineAdmin from '../images/portfolio/juicelineAdmin.png';
 
-const tlDuration = "transform 2s";
 
 const JuicelineExamples = props => {
-    const { width } = props;
+    const { width, transition } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const [img3, setImg3] = useState(false);
@@ -35,20 +34,20 @@ const JuicelineExamples = props => {
         juicelineDesktop: {
             gridArea: "img1",
             padding: "20% 0 20% 0",
-            transition: tlDuration,
+            transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
         juicelineMobile: {
             gridArea: "img2",
             marginBottom: sm ? "20%" : null,
-            transition: tlDuration,
+            transition: transition,
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },
         juicelineList: {
             gridArea: "img3",
             position: "relative",
             top: sm ? null : "15%",
-            transition: tlDuration,
+            transition: transition,
             transform: img3 ? "translateY(0)" : "translateY(50px)",
         },
         juicelineAdmin: {
@@ -56,7 +55,7 @@ const JuicelineExamples = props => {
             padding: sm ? "20% 0 25% 0" : "20% 0 40% 0",
             position: "relative",
             top: sm ? null : "15%",
-            transition: tlDuration,
+            transition: transition,
             transform: img4 ? "translateY(0)" : "translateY(50px)",
         },
     }
