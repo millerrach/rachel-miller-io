@@ -39,7 +39,7 @@ const App = () => {
       <HondaExamples screenWidth={screenWidth} transition={transition} />
       <WriteUp screenWidth={screenWidth} index={2} />
       <JubeckExamples screenWidth={screenWidth} transition={transition} />
-      <About />
+      <About screenWidth={screenWidth} />
     </div>
   );
 }
