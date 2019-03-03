@@ -1,11 +1,13 @@
-import React from "react";
-import email from "../images/email.svg";
-import github from "../images/github.svg";
+import React, { useState } from "react";
 import down from "../images/down.svg";
+import Email from "../images/links/email.jsx";
+import Github from "../images/links/github.jsx";
+
+
 
 const Intro = props => {
-  const { width } = props;
-  const sm = width < 600;
+  const { screenWidth } = props;
+  const sm = screenWidth < 600;
   const areas = sm ?
     `
         ". links .     .     .     .     .     .     .     .     . ."
@@ -23,7 +25,7 @@ const Intro = props => {
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: ".25fr .75fr",
       gridTemplateAreas: areas,
-      fontSize: "1.75em"
+      fontSize: "1.75em",
     },
     linkBarStyle: {
       gridArea: "links",
@@ -39,22 +41,53 @@ const Intro = props => {
       alignSelf: "center",
     },
   };
+  //Hover links
+  const STATUS = {
+    HOVERED: 'hovered',
+    NORMAL: 'normal',
+  };
+  const [hover, setHover] = useState(STATUS.NORMAL);
+  const _onMouseEnter = event => {
+    console.log("enter")
+    setHover(STATUS.HOVERED);
+  }
+  const _onMouseLeave = event => {
+    console.log("leave")
+    setHover(STATUS.NORMAL);
+  }
+  //end hover links
   return (
     <div className="Intro" style={styles.IntroStyle}>
       <div className="linkBar" style={styles.linkBarStyle}>
         <div className="links">
-          <img
-            src={github}
-            alt="github"
-            className="github"
-            style={{ marginBottom: ".75em", width: "1em" }}
-          />
-          <img src={email} alt="email" style={{ width: "1em" }} />
+          <a
+            className={hover}
+            href={"https://github.com/millerrach"}
+            onMouseEnter={_onMouseEnter}
+            onMouseLeave={_onMouseLeave}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github width="1em" passStyle={{ marginBottom: ".75em" }} />
+          </a>
+          <a
+            className={hover}
+            href={"mailto:mail@rachelmiller.io"}
+            onMouseEnter={_onMouseEnter}
+            onMouseLeave={_onMouseLeave}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Email width="1em" />
+          </a>
         </div>
-        {width > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 30 }} /> : null}
+        {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 30 }} /> : null}
       </div>
       <div className="text" style={styles.textStyle}>
-        <div style={{ paddingBottom: "1em" }}>
+        <div
+          onMouseEnter={_onMouseEnter}
+          onMouseLeave={_onMouseLeave}
+          style={{ paddingBottom: "1em" }}>
           I'm Rachel Miller, Front-End Web Developer and Designer.
           </div>
         <div>

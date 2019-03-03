@@ -4,6 +4,7 @@ import WriteUp from "./components/WriteUp.jsx";
 import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
 import JubeckExamples from './components/JubeckExamples.jsx';
+import About from './components/About.jsx'
 
 const App = () => {
 
@@ -27,17 +28,18 @@ const App = () => {
     };
   }, []);
 
-  const width = windowSize.innerWidth;
+  const screenWidth = windowSize.innerWidth;
   const transition = "transform 2s";
   return (
     <div className="App">
-      <Intro width={width} />
+      <Intro screenWidth={screenWidth} />
       <WriteUp index={0} />
-      <JuicelineExamples width={width} transition={transition} />
-      <WriteUp width={width} index={1} />
-      <HondaExamples width={width} transition={transition} />
-      <WriteUp width={width} index={2} />
-      <JubeckExamples width={width} transition={transition} />
+      <JuicelineExamples screenWidth={screenWidth} transition={transition} />
+      <WriteUp screenWidth={screenWidth} index={1} />
+      <HondaExamples screenWidth={screenWidth} transition={transition} />
+      <WriteUp screenWidth={screenWidth} index={2} />
+      <JubeckExamples screenWidth={screenWidth} transition={transition} />
+      <About />
     </div>
   );
 }
