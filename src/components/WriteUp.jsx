@@ -24,7 +24,7 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const { index } = props;
+  const { index, alignBottom } = props;
   const [toggle, setToggle] = useState(false);
   const wui = writeUps[index];
   const skills = wui.stack;
@@ -65,11 +65,16 @@ const WriteUp = props => {
       transform: toggle ? "translateY(0)" : "translateY(50px)",
       opacity: toggle ? 1 : 0,
     },
-    stack: {
-      gridArea: "stac",
-      placeSelf: "end",
+    stackTop: {
+      gridArea: "2 / 10 / 3 / 12",
       lineHeight: "1.5",
       justifySelf: "end",
+    },
+    stackBottom: {
+      gridArea: "stac",
+      justifySelf: "end",
+      alignSelf: "end",
+      lineHeight: "1.5",
     },
   };
   return (
@@ -77,7 +82,7 @@ const WriteUp = props => {
       <div className="WriteUp" style={styles.WriteUpStyle}>
         <div className="name" style={styles.name}>{wui.name}</div>
         <div className="description" style={styles.description}>{wui.description}</div>
-        <div className="stack" style={styles.stack}>
+        <div className="stack" style={alignBottom ? styles.stackBottom : styles.stackTop}>
           {trail.map(({ x, ...rest }, i) => (
             <animated.div
               key={skills[i]}

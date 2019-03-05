@@ -4,8 +4,10 @@ import { Waypoint } from 'react-waypoint';
 import MyStack from '../images/myStack.jsx'
 
 const Stack = () => {
+    const [animate, setAnimate] = useState(false)
+    const _trigger = () => { setAnimate(true) }
     //Stack Animation
-    useEffect(() => void reset(), [])
+    useEffect(() => void reset(), [animate])
     const ref = useRef([])
     const [items, set] = useState([])
     const transitions = useTransition(items, null, {
@@ -24,12 +26,7 @@ const Stack = () => {
         ref.current.push(setTimeout(() => set(['React', 'JS']), 3000))
         ref.current.push(setTimeout(() => set(['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Git']), 5000))
     }, [])
-    useEffect(() => void reset(), [])
     //End Stack Animation
-    const _toggle = (num) => {
-        console.log(num)
-        // return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
-    }
     const styles = {
         Stack: {
             width: "100%",
@@ -49,7 +46,7 @@ const Stack = () => {
         },
     }
     return (
-        <Waypoint onEnter={_toggle.bind(null, 1)}>
+        <Waypoint onEnter={_trigger}>
             <div className="Stack" style={styles.Stack}>
                 <div style={styles.myStack}>
                     <MyStack />

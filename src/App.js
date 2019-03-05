@@ -34,11 +34,11 @@ const App = () => {
   return (
     <div className="App">
       <Intro screenWidth={screenWidth} />
-      <WriteUp index={0} />
+      <WriteUp index={0} alignBottom={true} />
       <JuicelineExamples screenWidth={screenWidth} transition={transition} />
-      <WriteUp screenWidth={screenWidth} index={1} />
+      <WriteUp screenWidth={screenWidth} index={1} alignBottom={false} />
       <HondaExamples screenWidth={screenWidth} transition={transition} />
-      <WriteUp screenWidth={screenWidth} index={2} />
+      <WriteUp screenWidth={screenWidth} index={2} alignBottom={true} />
       <JubeckExamples screenWidth={screenWidth} transition={transition} />
       <Stack />
       <About screenWidth={screenWidth} />
