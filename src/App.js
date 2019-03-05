@@ -5,6 +5,7 @@ import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
 import JubeckExamples from './components/JubeckExamples.jsx';
 import About from './components/About.jsx'
+import Stack from './components/Stack.jsx'
 
 const App = () => {
 
@@ -39,6 +40,7 @@ const App = () => {
       <HondaExamples screenWidth={screenWidth} transition={transition} />
       <WriteUp screenWidth={screenWidth} index={2} />
       <JubeckExamples screenWidth={screenWidth} transition={transition} />
+      <Stack />
       <About screenWidth={screenWidth} />
     </div>
   );
