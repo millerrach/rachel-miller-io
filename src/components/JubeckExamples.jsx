@@ -9,6 +9,9 @@ const JubeckExamples = props => {
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const sm = width < 600;
+    const _toggle = (num) => {
+        return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
+    }
     const areas = sm ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 img2 img2 img2 img2 img2 img2 ."` :
@@ -37,15 +40,12 @@ const JubeckExamples = props => {
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },
     }
-    const _true = (num) => {
-        return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
-    }
     return (
         <div className="JubeckExamples" style={styles.JubeckExamples}>
-            <Waypoint onEnter={_true.bind(null, 1)}>
+            <Waypoint onEnter={_toggle.bind(null, 1)}>
                 <img src={jubeck_1} className="jubeck_1 example" style={styles.jubeck_1} alt="Jubeck Example 1" />
             </Waypoint>
-            <Waypoint onEnter={_true.bind(null, 2)}>
+            <Waypoint onEnter={_toggle.bind(null, 2)}>
                 <img src={jubeck_2} className="jubeck_2 example" style={styles.jubeck_2} alt="Jubeck Example 2" />
             </Waypoint>
         </div>

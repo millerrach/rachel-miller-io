@@ -25,7 +25,21 @@ const writeUps = [
 
 const WriteUp = props => {
   const { index } = props;
-  const [animate, setAnimate] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const wui = writeUps[index];
+  const skills = wui.stack;
+  //react-spring
+  const config = { mass: 10, tension: 1500, friction: 200 };
+  const trail = useTrail(skills.length, {
+    config,
+    opacity: toggle ? 1 : 0,
+    x: toggle ? 0 : 20,
+    from: { opacity: 0, x: 20 },
+  })
+  //end react-spring
+  const _toggle = () => {
+    setToggle(true);
+  }
   const styles = {
     WriteUpStyle: {
       width: "100%",
@@ -40,39 +54,26 @@ const WriteUp = props => {
     name: {
       gridArea: "name",
       transition: "all 1s",
-      transform: animate ? "translateY(0)" : "translateY(50px)",
-      opacity: animate ? 1 : 0,
+      transform: toggle ? "translateY(0)" : "translateY(50px)",
+      opacity: toggle ? 1 : 0,
       fontSize: "1.5em",
     },
     description: {
       gridArea: "desc",
       alignSelf: "end",
       transition: "all 1s",
-      transform: animate ? "translateY(0)" : "translateY(50px)",
-      opacity: animate ? 1 : 0,
+      transform: toggle ? "translateY(0)" : "translateY(50px)",
+      opacity: toggle ? 1 : 0,
     },
     stack: {
       gridArea: "stac",
       placeSelf: "end",
-      lineHeight: "1.3"
+      lineHeight: "1.5",
+      justifySelf: "end",
     },
   };
-  const wui = writeUps[index];
-  const skills = wui.stack;
-  //react-spring
-  const config = { mass: 10, tension: 1500, friction: 200 };
-  const trail = useTrail(skills.length, {
-    config,
-    opacity: animate ? 1 : 0,
-    x: animate ? 0 : 20,
-    from: { opacity: 0, x: 20 },
-  })
-  //end react-spring
-  const _animate = () => {
-    setAnimate(true);
-  }
   return (
-    <Waypoint onEnter={_animate}>
+    <Waypoint onEnter={_toggle}>
       <div className="WriteUp" style={styles.WriteUpStyle}>
         <div className="name" style={styles.name}>{wui.name}</div>
         <div className="description" style={styles.description}>{wui.description}</div>

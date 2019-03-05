@@ -8,6 +8,21 @@ import Github from "../images/links/github.jsx";
 const Intro = props => {
   const { screenWidth } = props;
   const sm = screenWidth < 600;
+  //Hover links
+  const STATUS = {
+    HOVERED: 'hovered',
+    NORMAL: 'normal',
+  };
+  const [hover, setHover] = useState(STATUS.NORMAL);
+  const _onMouseEnter = event => {
+    console.log("enter")
+    setHover(STATUS.HOVERED);
+  }
+  const _onMouseLeave = event => {
+    console.log("leave")
+    setHover(STATUS.NORMAL);
+  }
+  //end hover links
   const areas = sm ?
     `
         ". links .     .     .     .     .     .     .     .     . ."
@@ -41,21 +56,6 @@ const Intro = props => {
       alignSelf: "center",
     },
   };
-  //Hover links
-  const STATUS = {
-    HOVERED: 'hovered',
-    NORMAL: 'normal',
-  };
-  const [hover, setHover] = useState(STATUS.NORMAL);
-  const _onMouseEnter = event => {
-    console.log("enter")
-    setHover(STATUS.HOVERED);
-  }
-  const _onMouseLeave = event => {
-    console.log("leave")
-    setHover(STATUS.NORMAL);
-  }
-  //end hover links
   return (
     <div className="Intro" style={styles.IntroStyle}>
       <div className="linkBar" style={styles.linkBarStyle}>

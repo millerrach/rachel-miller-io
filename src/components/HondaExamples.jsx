@@ -9,6 +9,9 @@ const HondaExamples = props => {
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const sm = width < 600;
+    const _toggle = (num) => {
+        return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
+    }
     const areas = sm ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 img2 img2 img2 img2 img2 img2 ."` :
@@ -37,15 +40,12 @@ const HondaExamples = props => {
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },
     }
-    const _true = (num) => {
-        return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
-    }
     return (
         <div className="HondaExamples" style={styles.HondaExamples}>
-            <Waypoint onEnter={_true.bind(null, 1)}>
+            <Waypoint onEnter={_toggle.bind(null, 1)}>
                 <img src={honda_1} className="honda_1 example" style={styles.honda_1} alt="Honda Example 1" />
             </Waypoint>
-            <Waypoint onEnter={_true.bind(null, 2)}>
+            <Waypoint onEnter={_toggle.bind(null, 2)}>
                 <img src={honda_2} className="honda_2 example" style={styles.honda_2} alt="Honda Example 2" />
             </Waypoint>
         </div>

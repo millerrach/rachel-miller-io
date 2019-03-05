@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { useTransition, animated } from 'react-spring';
+import { Waypoint } from 'react-waypoint';
 import MyStack from '../images/myStack.jsx'
 
 const Stack = () => {
+    //Stack Animation
     useEffect(() => void reset(), [])
     const ref = useRef([])
     const [items, set] = useState([])
@@ -22,9 +24,12 @@ const Stack = () => {
         ref.current.push(setTimeout(() => set(['React', 'JS']), 3000))
         ref.current.push(setTimeout(() => set(['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Git']), 5000))
     }, [])
-
     useEffect(() => void reset(), [])
     //End Stack Animation
+    const _toggle = (num) => {
+        console.log(num)
+        // return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
+    }
     const styles = {
         Stack: {
             width: "100%",
@@ -44,19 +49,21 @@ const Stack = () => {
         },
     }
     return (
-        <div className="Stack" style={styles.Stack}>
-            <div style={styles.myStack}>
-                <MyStack />
-            </div>
-            <div id="skills" style={styles.skills}>
-                {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
-                    <animated.div className="transitions-item" key={key} style={rest}>
-                        <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
-                    </animated.div>
-                ))
-                }
-            </div>
-        </div >
+        <Waypoint onEnter={_toggle.bind(null, 1)}>
+            <div className="Stack" style={styles.Stack}>
+                <div style={styles.myStack}>
+                    <MyStack />
+                </div>
+                <div id="skills" style={styles.skills}>
+                    {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
+                        <animated.div className="transitions-item" key={key} style={rest}>
+                            <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
+                        </animated.div>
+                    ))
+                    }
+                </div>
+            </div >
+        </Waypoint>
     )
 }
 
