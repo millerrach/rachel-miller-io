@@ -40,20 +40,24 @@ const About = props => {
             position: "relative",
             zIndex: 1,
             gridArea: "amI",
+            height: "60vh",
         },
         thanks: {
             position: "relative",
             zIndex: 1,
             gridArea: "thx",
-            height: "100vh",
+            height: "90vh",
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
         },
         githubContainer: {
+            opacity: github ? 1 : 0,
+            transition: "opacity 1s",
         },
         siteBottom: {
             position: "absolute",
+            height: 5,
             bottom: 0,
         }
     }
@@ -63,7 +67,7 @@ const About = props => {
             <div className="scrollingText" style={styles.scrollingText}>
                 <div className="whereAmI" style={styles.whereAmI}>
                     <div style={{ fontSize: heading, paddingBottom: "1em" }}>Where am I?</div>
-                    <div style={{ fontSize: text }}>In the last 2.5 years, my husband and myself have lived in 16 countries. Currently in Croatia but soon headed to Minneapolis, MN.</div>
+                    <div style={{ fontSize: text }}>In the last 2.5 years, my husband and I have lived in 16 countries. We are currently in Croatia but soon headed to Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={{ fontSize: heading }}>Thanks!</div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import down from "../images/down.svg";
 import Email from "../images/links/email.jsx";
 import Github from "../images/links/github.jsx";
@@ -8,21 +8,6 @@ import Github from "../images/links/github.jsx";
 const Intro = props => {
   const { screenWidth } = props;
   const sm = screenWidth < 600;
-  //Hover links
-  const STATUS = {
-    HOVERED: 'hovered',
-    NORMAL: 'normal',
-  };
-  const [hover, setHover] = useState(STATUS.NORMAL);
-  const _onMouseEnter = event => {
-    console.log("enter")
-    setHover(STATUS.HOVERED);
-  }
-  const _onMouseLeave = event => {
-    console.log("leave")
-    setHover(STATUS.NORMAL);
-  }
-  //end hover links
   const areas = sm ?
     `
         ". links .     .     .     .     .     .     .     .     . ."
@@ -61,20 +46,14 @@ const Intro = props => {
       <div className="linkBar" style={styles.linkBarStyle}>
         <div className="links">
           <a
-            className={hover}
             href={"https://github.com/millerrach"}
-            onMouseEnter={_onMouseEnter}
-            onMouseLeave={_onMouseLeave}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Github width="1em" passStyle={{ marginBottom: ".75em" }} />
           </a>
           <a
-            className={hover}
             href={"mailto:mail@rachelmiller.io"}
-            onMouseEnter={_onMouseEnter}
-            onMouseLeave={_onMouseLeave}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -85,8 +64,6 @@ const Intro = props => {
       </div>
       <div className="text" style={styles.textStyle}>
         <div
-          onMouseEnter={_onMouseEnter}
-          onMouseLeave={_onMouseLeave}
           style={{ paddingBottom: "1em" }}>
           I'm Rachel Miller, Front-End Web Developer and Designer.
           </div>
