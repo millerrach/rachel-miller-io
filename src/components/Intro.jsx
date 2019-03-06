@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import down from "../images/down.svg";
 import Email from "../images/links/email.jsx";
 import Github from "../images/links/github.jsx";
@@ -8,6 +8,10 @@ import Github from "../images/links/github.jsx";
 const Intro = props => {
   const { screenWidth } = props;
   const sm = screenWidth < 600;
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
   const areas = sm ?
     `
         ". links .     .     .     .     .     .     .     .     . ."
@@ -16,7 +20,7 @@ const Intro = props => {
         "links .     .     .     .     .     .     .     . . . ."
         "links .     about about about about about about . . . ."`;
   const styles = {
-    IntroStyle: {
+    Intro: {
       backgroundColor: "#000",
       color: "#fff",
       width: "100%",
@@ -27,7 +31,7 @@ const Intro = props => {
       gridTemplateAreas: areas,
       fontSize: "1.75em",
     },
-    linkBarStyle: {
+    linkBar: {
       gridArea: "links",
       justifySelf: sm ? "start" : "center",
       width: "1em",
@@ -35,34 +39,36 @@ const Intro = props => {
       display: "grid",
       padding: !sm ? "2em 0" : null,
     },
-    textStyle: {
+    text: {
       gridArea: "about",
       display: "grid",
       alignSelf: "center",
+      opacity: loaded ? 1 : 0,
+      transition: "opacity 1s"
     },
   };
   return (
-    <div className="Intro" style={styles.IntroStyle}>
-      <div className="linkBar" style={styles.linkBarStyle}>
+    <div className="Intro" style={styles.Intro}>
+      <div className="linkBar" style={styles.linkBar}>
         <div className="links">
           <a
             href={"https://github.com/millerrach"}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github width="1em" passStyle={{ marginBottom: ".75em" }} />
+            <Github width=".75em" passStyle={{ marginBottom: ".75em" }} />
           </a>
           <a
             href={"mailto:mail@rachelmiller.io"}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Email width="1em" />
+            <Email width=".75em" />
           </a>
         </div>
         {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 30 }} /> : null}
       </div>
-      <div className="text" style={styles.textStyle}>
+      <div className="text" style={styles.text}>
         <div
           style={{ paddingBottom: "1em" }}>
           I'm Rachel Miller, Front-End Web Developer and Designer.

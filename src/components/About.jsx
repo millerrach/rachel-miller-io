@@ -66,12 +66,12 @@ const About = props => {
             <img src={croatia} className="croatia" alt="croatia" style={styles.croatia} />
             <div className="scrollingText" style={styles.scrollingText}>
                 <div className="whereAmI" style={styles.whereAmI}>
-                    <div style={{ fontSize: heading, paddingBottom: "1em" }}>Where am I?</div>
+                    <div style={{ fontSize: heading, paddingBottom: "1em", fontWeight: 700 }}>Where am I?</div>
                     <div style={{ fontSize: text }}>In the last 2.5 years, my husband and I have lived in 16 countries. We are currently in Croatia but soon headed to Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
-                    <div style={{ fontSize: heading }}>Thanks!</div>
-                    <div style={{ fontSize: text, padding: "0.5em 0px 1.5em 0" }}>mail@rachelmiller.io</div>
+                    <div style={{ fontSize: heading, fontWeight: 700 }}>Thank You.</div>
+                    <div style={{ fontSize: text, padding: "0.5em 0px 1.5em 0", fontWeight: 300 }}>mail@rachelmiller.io</div>
                     <div className="githubContainer" style={styles.githubContainer}>
                         <Github width="2.25em" />
                     </div>

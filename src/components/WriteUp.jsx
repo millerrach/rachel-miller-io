@@ -12,7 +12,7 @@ const writeUps = [
   {
     name: "Honda",
     description:
-      "This project was done for Portlight Technologies. It’s a touch-screen app that ‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
+      "This project was done for Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
     stack: ["JS", "HTML5", "CSS3", "Sass"]
   },
   {
