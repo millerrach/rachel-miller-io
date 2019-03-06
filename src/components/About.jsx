@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Waypoint } from 'react-waypoint';
 import croatia from '../images/about/croatia.jpg';
+import Github from '../images/links/github.jsx'
+
 
 const heading = "2em";
 const text = "1.5em";
@@ -7,10 +10,15 @@ const text = "1.5em";
 const About = props => {
     const { screenWidth } = props;
     const smMd = screenWidth < 800;
+    const [github, setGithub] = useState(false);
+    const _trigger = () => {
+        setGithub(true)
+    }
     const styles = {
         About: {
             color: "#fff",
             display: "grid",
+            position: "relative",
         },
         croatia: {
             position: "sticky",
@@ -41,22 +49,34 @@ const About = props => {
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
+        },
+        githubContainer: {
+        },
+        siteBottom: {
+            position: "absolute",
+            bottom: 0,
         }
     }
     return (
-        <div className="About" style={styles.About}>
+        <div className="About" style={styles.About} >
             <img src={croatia} className="croatia" alt="croatia" style={styles.croatia} />
             <div className="scrollingText" style={styles.scrollingText}>
                 <div className="whereAmI" style={styles.whereAmI}>
-                    <div style={{ fontSize: heading }}>Where am I?</div>
+                    <div style={{ fontSize: heading, paddingBottom: "1em" }}>Where am I?</div>
                     <div style={{ fontSize: text }}>In the last 2.5 years, my husband and myself have lived in 16 countries. Currently in Croatia but soon headed to Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={{ fontSize: heading }}>Thanks!</div>
-                    <div style={{ fontSize: text }}>mail@rachelmiller.io</div>
+                    <div style={{ fontSize: text, padding: "0.5em 0px 1.5em 0" }}>mail@rachelmiller.io</div>
+                    <div className="githubContainer" style={styles.githubContainer}>
+                        <Github width="2.25em" />
+                    </div>
+                    <Waypoint onEnter={_trigger}>
+                        <div className="siteBottom" style={styles.siteBottom}></div>
+                    </Waypoint>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

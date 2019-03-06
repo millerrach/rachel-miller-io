@@ -35,6 +35,7 @@ const Stack = () => {
             gridTemplateAreas: `"mStac mStac . . . skill skill skill skill skill skill ."`,
             padding: "2em 0",
             alignItems: "center",
+            height: 600,
         },
         myStack: {
             gridArea: "mStac",
