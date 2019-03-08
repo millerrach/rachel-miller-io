@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Waypoint } from 'react-waypoint';
-import { useTrail, animated } from 'react-spring'
 
 
 const writeUps = [
@@ -29,15 +28,6 @@ const WriteUp = props => {
   const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
   const skills = wui.stack;
-  //react-spring
-  const config = { mass: 10, tension: 1500, friction: 200 };
-  const trail = useTrail(skills.length, {
-    config,
-    opacity: animate ? 1 : 0,
-    x: animate ? 0 : 20,
-    from: { opacity: 0, x: 20 },
-  })
-  //end react-spring
   const _trigger = () => {
     setAnimate(true);
   }
@@ -80,6 +70,12 @@ const WriteUp = props => {
       alignSelf: "end",
       lineHeight: "1.5",
     },
+    skill: {
+      transform: animate ? "translateY(0)" : "translateY(50px)",
+      transition: "all 1s",
+      opacity: animate ? 1 : 0,
+      lineHeight: animate ? 1.5 : 3,
+    }
   };
   return (
     <div className="WriteUp" style={styles.WriteUpStyle}>
@@ -88,14 +84,7 @@ const WriteUp = props => {
         <div className="description" style={styles.description}>{wui.description}</div>
       </Waypoint>
       <div className="stack" style={alignBottom ? styles.stackBottom : styles.stackTop}>
-        {trail.map(({ x, ...rest }, i) => (
-          <animated.div
-            key={skills[i]}
-            className="trails-text"
-            style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-            <animated.div>{skills[i]}</animated.div>
-          </animated.div>
-        ))}
+        {skills.map((skill, i) => <div key={i} style={styles.skill}>{skill}</div>)}
       </div>
     </div>
   );
