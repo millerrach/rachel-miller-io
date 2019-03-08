@@ -5,7 +5,6 @@ import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
 import JubeckExamples from './components/JubeckExamples.jsx';
 import About from './components/About.jsx'
-import Stack from './components/Stack.jsx'
 
 
 const App = () => {
@@ -30,6 +29,12 @@ const App = () => {
     };
   }, []);
 
+  window.onscroll = function (e) {
+    // false if direction is down and true if up
+    console.log(this.oldScroll > this.scrollY);
+    this.oldScroll = this.scrollY;
+  }
+
   const screenWidth = windowSize.innerWidth;
   const transition = "transform 2s";
   return (
@@ -41,7 +46,7 @@ const App = () => {
       <HondaExamples screenWidth={screenWidth} transition={transition} />
       <WriteUp screenWidth={screenWidth} index={2} alignBottom={true} />
       <JubeckExamples screenWidth={screenWidth} transition={transition} />
-      <Stack />
+      {/* <Stack /> */}
       <About screenWidth={screenWidth} />
     </div>
   );
