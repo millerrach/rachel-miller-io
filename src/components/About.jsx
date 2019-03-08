@@ -11,8 +11,8 @@ const About = props => {
     const { screenWidth } = props;
     const smMd = screenWidth < 800;
     const [github, setGithub] = useState(false);
-    const _trigger = () => {
-        setGithub(true)
+    const _toggle = () => {
+        setGithub(!github)
     }
     const styles = {
         About: {
@@ -75,7 +75,7 @@ const About = props => {
                     <div className="githubContainer" style={styles.githubContainer}>
                         <Github width="2.25em" />
                     </div>
-                    <Waypoint onEnter={_trigger}>
+                    <Waypoint onEnter={_toggle} onLeave={_toggle}>
                         <div className="siteBottom" style={styles.siteBottom}></div>
                     </Waypoint>
                 </div>

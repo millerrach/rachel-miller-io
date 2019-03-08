@@ -9,7 +9,7 @@ const JubeckExamples = props => {
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const sm = width < 600;
-    const _toggle = (num) => {
+    const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
     }
     const areas = sm ? `
@@ -42,10 +42,10 @@ const JubeckExamples = props => {
     }
     return (
         <div className="JubeckExamples" style={styles.JubeckExamples}>
-            <Waypoint onEnter={_toggle.bind(null, 1)}>
+            <Waypoint onEnter={_trigger.bind(null, 1)}>
                 <img src={jubeck_1} className="jubeck_1 example" style={styles.jubeck_1} alt="Jubeck Example 1" />
             </Waypoint>
-            <Waypoint onEnter={_toggle.bind(null, 2)}>
+            <Waypoint onEnter={_trigger.bind(null, 2)}>
                 <img src={jubeck_2} className="jubeck_2 example" style={styles.jubeck_2} alt="Jubeck Example 2" />
             </Waypoint>
         </div>

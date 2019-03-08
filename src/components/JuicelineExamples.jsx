@@ -13,7 +13,7 @@ const JuicelineExamples = props => {
     const [img3, setImg3] = useState(false);
     const [img4, setImg4] = useState(false);
     const sm = width < 600;
-    const _toggle = (num) => {
+    const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : num === 3 ? setImg3(true) : num === 4 ? setImg4(true) : setImg2(true) + setImg3(true);
     }
     const areas = sm ? `
@@ -64,33 +64,33 @@ const JuicelineExamples = props => {
     }
     return (
         <div className="JuicelineExamples" >
-            <Waypoint onEnter={_toggle.bind(null, 1)}>
+            <Waypoint onEnter={_trigger.bind(null, 1)}>
                 <div style={styles.JuicelineExamples}>
                     <img src={juicelineDesktop} className="juicelineDesktop example" style={styles.juicelineDesktop} alt="Juiceline Example 1" />
                 </div>
             </Waypoint>
             {sm ?
                 <div>
-                    <Waypoint onEnter={_toggle.bind(null, 2)}>
+                    <Waypoint onEnter={_trigger.bind(null, 2)}>
                         <div style={styles.JuicelineExamples}>
                             <img src={juicelineMobile} className="juicelineMobile example" style={styles.juicelineMobile} alt="Juiceline Example 2" />
                         </div>
                     </Waypoint>
-                    <Waypoint onEnter={_toggle.bind(null, 3)}>
+                    <Waypoint onEnter={_trigger.bind(null, 3)}>
                         <div style={styles.JuicelineExamples}>
                             <img src={juicelineList} className="juicelineList example" style={styles.juicelineList} alt="Juiceline Example 3" />
                         </div>
                     </Waypoint>
                 </div>
                 :
-                <Waypoint onEnter={_toggle}>
+                <Waypoint onEnter={_trigger}>
                     <div style={styles.JuicelineExamples}>
                         <img src={juicelineMobile} className="juicelineMobile example" style={styles.juicelineMobile} alt="Juiceline Example 2" />
                         <img src={juicelineList} className="juicelineList example" style={styles.juicelineList} alt="Juiceline Example 3" />
                     </div>
                 </Waypoint>}
 
-            <Waypoint onEnter={_toggle.bind(null, 4)}>
+            <Waypoint onEnter={_trigger.bind(null, 4)}>
                 <div style={styles.JuicelineExamples}>
                     <img src={juicelineAdmin} className="juicelineAdmin example" style={styles.juicelineAdmin} alt="Juiceline Example 4" />
                 </div>

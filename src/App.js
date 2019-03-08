@@ -7,9 +7,10 @@ import JubeckExamples from './components/JubeckExamples.jsx';
 import About from './components/About.jsx'
 import Stack from './components/Stack.jsx'
 
+
 const App = () => {
 
-  function getSize() {
+  const getSize = () => {
     return {
       innerHeight: window.innerHeight,
       innerWidth: window.innerWidth,
@@ -18,7 +19,7 @@ const App = () => {
 
   let [windowSize, setWindowSize] = useState(getSize());
 
-  function handleResize() {
+  const handleResize = () => {
     setWindowSize(getSize());
   }
 

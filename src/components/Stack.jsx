@@ -3,6 +3,7 @@ import { useTransition, animated } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import MyStack from '../images/myStack.jsx'
 
+
 const Stack = () => {
     const [animate, setAnimate] = useState(false)
     const _trigger = () => { setAnimate(true) }
@@ -36,6 +37,7 @@ const Stack = () => {
             padding: "2em 0",
             alignItems: "center",
             height: 600,
+            position: "relative",
         },
         myStack: {
             gridArea: "mStac",
@@ -44,6 +46,8 @@ const Stack = () => {
         },
         skills: {
             gridArea: "skill",
+            position: "relative",
+            zIndex: 4,
         },
     }
     return (

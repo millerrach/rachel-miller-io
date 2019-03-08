@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Waypoint } from 'react-waypoint';
 import { useTrail, animated } from 'react-spring'
 
+
 const writeUps = [
   {
     name: "Juiceline",
@@ -25,20 +26,20 @@ const writeUps = [
 
 const WriteUp = props => {
   const { index, alignBottom } = props;
-  const [toggle, setToggle] = useState(false);
+  const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
   const skills = wui.stack;
   //react-spring
   const config = { mass: 10, tension: 1500, friction: 200 };
   const trail = useTrail(skills.length, {
     config,
-    opacity: toggle ? 1 : 0,
-    x: toggle ? 0 : 20,
+    opacity: animate ? 1 : 0,
+    x: animate ? 0 : 20,
     from: { opacity: 0, x: 20 },
   })
   //end react-spring
-  const _toggle = () => {
-    setToggle(true);
+  const _trigger = () => {
+    setAnimate(true);
   }
   const styles = {
     WriteUpStyle: {
@@ -50,20 +51,23 @@ const WriteUp = props => {
       ". name name name name name name name . stac stac . "
       ". desc desc desc desc desc desc desc . stac stac . "`,
       margin: "3em 0",
+      opacity: animate ? 1 : 0,
+      transition: "all 2s",
     },
     name: {
       gridArea: "name",
       transition: "all 1s",
-      transform: toggle ? "translateY(0)" : "translateY(50px)",
-      opacity: toggle ? 1 : 0,
+      transform: animate ? "translateY(0)" : "translateY(50px)",
+      opacity: animate ? 1 : 0,
       fontSize: "1.5em",
     },
     description: {
       gridArea: "desc",
       alignSelf: "end",
       transition: "all 1s",
-      transform: toggle ? "translateY(0)" : "translateY(50px)",
-      opacity: toggle ? 1 : 0,
+      transform: animate ? "translateY(0)" : "translateY(50px)",
+      opacity: animate ? 1 : 0,
+      lineHeight: animate ? 1.5 : 3,
     },
     stackTop: {
       gridArea: "2 / 10 / 3 / 12",
@@ -78,22 +82,22 @@ const WriteUp = props => {
     },
   };
   return (
-    <Waypoint onEnter={_toggle}>
-      <div className="WriteUp" style={styles.WriteUpStyle}>
-        <div className="name" style={styles.name}>{wui.name}</div>
+    <div className="WriteUp" style={styles.WriteUpStyle}>
+      <div className="name" style={styles.name}>{wui.name}</div>
+      <Waypoint onEnter={_trigger}>
         <div className="description" style={styles.description}>{wui.description}</div>
-        <div className="stack" style={alignBottom ? styles.stackBottom : styles.stackTop}>
-          {trail.map(({ x, ...rest }, i) => (
-            <animated.div
-              key={skills[i]}
-              className="trails-text"
-              style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-              <animated.div>{skills[i]}</animated.div>
-            </animated.div>
-          ))}
-        </div>
+      </Waypoint>
+      <div className="stack" style={alignBottom ? styles.stackBottom : styles.stackTop}>
+        {trail.map(({ x, ...rest }, i) => (
+          <animated.div
+            key={skills[i]}
+            className="trails-text"
+            style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
+            <animated.div>{skills[i]}</animated.div>
+          </animated.div>
+        ))}
       </div>
-    </Waypoint>
+    </div>
   );
 }
 

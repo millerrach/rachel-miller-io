@@ -4,7 +4,6 @@ import Email from "../images/links/email.jsx";
 import Github from "../images/links/github.jsx";
 
 
-
 const Intro = props => {
   const { screenWidth } = props;
   const sm = screenWidth < 600;
