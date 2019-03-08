@@ -43,10 +43,8 @@ const Intro = props => {
     },
     links: {
       display: "grid",
-      gridTemplateRows: "repeat(2, 3em)"
-    },
-    github: {
-
+      gridTemplateRows: "repeat(2, 3em)",
+      alignItems: "center",
     },
     text: {
       gridArea: "about",
@@ -60,8 +58,8 @@ const Intro = props => {
     <div className="Intro" style={styles.Intro}>
       <div className="linkBar" style={styles.linkBar}>
         <div className="links" style={styles.links}>
-          <div className="github" style={styles.github}><Github width={40} /></div>
-          <div className="email" style={styles.email}><Email width={40} /></div>
+          <Github width={40} />
+          <Email width={40} />
         </div>
         {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 40 }} /> : null}
       </div>
