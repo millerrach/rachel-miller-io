@@ -37,35 +37,33 @@ const Intro = props => {
       alignSelf: sm ? "center" : null,
       display: "grid",
       padding: !sm ? "2em 0" : null,
+      transform: loaded ? "translateX(0)" : "translateX(-500%)",
+      opacity: loaded ? 1 : 0,
+      transition: "all 2s",
+    },
+    links: {
+      display: "grid",
+      gridTemplateRows: "repeat(2, 3em)"
+    },
+    github: {
+
     },
     text: {
       gridArea: "about",
       display: "grid",
       alignSelf: "center",
       opacity: loaded ? 1 : 0,
-      transition: "opacity 1s"
+      transition: "opacity 1s",
     },
   };
   return (
     <div className="Intro" style={styles.Intro}>
       <div className="linkBar" style={styles.linkBar}>
-        <div className="links">
-          <a
-            href={"https://github.com/millerrach"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github width=".75em" passStyle={{ marginBottom: ".75em" }} />
-          </a>
-          <a
-            href={"mailto:mail@rachelmiller.io"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Email width=".75em" />
-          </a>
+        <div className="links" style={styles.links}>
+          <div className="github" style={styles.github}><Github width={40} /></div>
+          <div className="email" style={styles.email}><Email width={40} /></div>
         </div>
-        {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 30 }} /> : null}
+        {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 40 }} /> : null}
       </div>
       <div className="text" style={styles.text}>
         <div
@@ -77,7 +75,7 @@ const Intro = props => {
           apps.
           </div>
       </div>
-    </div>
+    </div >
   );
 }
 

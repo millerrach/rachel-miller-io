@@ -6,13 +6,14 @@ import Github from '../images/links/github.jsx'
 
 const heading = "2em";
 const text = "1.5em";
+const githubWidth = 50;
 
 const About = props => {
     const { screenWidth } = props;
     const smMd = screenWidth < 800;
-    const [github, setGithub] = useState(false);
+    const [showGithub, setGithub] = useState(false);
     const _toggle = () => {
-        setGithub(!github)
+        setGithub(!showGithub)
     }
     const styles = {
         About: {
@@ -33,7 +34,7 @@ const About = props => {
             gridTemplateColumns: "repeat(12, 1fr)",
             gridTemplateAreas: `
             ". amI amI amI amI amI amI . . . ."
-            ". thx thx thx thx thx thx . . . ."
+            ". thx thx .   .   .   .   . . . ."
             `,
         },
         whereAmI: {
@@ -52,8 +53,9 @@ const About = props => {
             flexDirection: "column",
         },
         githubContainer: {
-            opacity: github ? 1 : 0,
+            opacity: showGithub ? 1 : 0,
             transition: "opacity 1s",
+            width: githubWidth,
         },
         siteBottom: {
             position: "absolute",
@@ -73,7 +75,7 @@ const About = props => {
                     <div style={{ fontSize: heading, fontWeight: 700 }}>Thank You.</div>
                     <div style={{ fontSize: text, padding: "0.5em 0px 1.5em 0", fontWeight: 300 }}>mail@rachelmiller.io</div>
                     <div className="githubContainer" style={styles.githubContainer}>
-                        <Github width="2.25em" />
+                        <Github width={githubWidth} />
                     </div>
                     <Waypoint onEnter={_toggle} onLeave={_toggle}>
                         <div className="siteBottom" style={styles.siteBottom}></div>

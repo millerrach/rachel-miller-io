@@ -7,12 +7,12 @@ import juicelineAdmin from '../images/portfolio/juicelineAdmin.png';
 
 
 const JuicelineExamples = props => {
-    const { width, transition } = props;
+    const { screenWidth, transition } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const [img3, setImg3] = useState(false);
     const [img4, setImg4] = useState(false);
-    const sm = width < 600;
+    const sm = screenWidth < 600;
     const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : num === 3 ? setImg3(true) : num === 4 ? setImg4(true) : setImg2(true) + setImg3(true);
     }

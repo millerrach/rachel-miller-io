@@ -5,10 +5,10 @@ import honda_2 from '../images/portfolio/honda_2.png';
 
 
 const HondaExamples = props => {
-    const { width, transition } = props;
+    const { screenWidth, transition } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
-    const sm = width < 600;
+    const sm = screenWidth < 600;
     const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
     }
