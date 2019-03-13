@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Waypoint } from 'react-waypoint';
 
 
@@ -24,12 +24,17 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const { index, alignBottom } = props;
+  const { index, alignBottom, notTop } = props;
+  const [opacity, setOpacity] = useState(0);
   const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
   const skills = wui.stack;
+  useEffect(() => {
+    if (notTop) { setAnimate(true) }
+  }, [notTop]);
   const _trigger = () => {
     setAnimate(true);
+    setOpacity(1)
   }
   const styles = {
     WriteUpStyle: {
@@ -41,7 +46,7 @@ const WriteUp = props => {
       ". name name name name name name name . stac stac . "
       ". desc desc desc desc desc desc desc . stac stac . "`,
       margin: "3em 0",
-      opacity: animate ? 1 : 0,
+      opacity: opacity,
       transition: "all 2s",
     },
     name: {

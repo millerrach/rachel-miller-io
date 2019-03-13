@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Waypoint } from 'react-waypoint';
 import jubeck_1 from '../images/portfolio/jubeck_1.png';
 import jubeck_2 from '../images/portfolio/jubeck_2.png';
 
 
 const JubeckExamples = props => {
-    const { screenWidth, transition } = props;
+    const { screenWidth, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const sm = screenWidth < 600;
+    useEffect(() => {
+        if (notTop) {
+            setImg1(true);
+            setImg2(true);
+        }
+    }, [notTop]);
     const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
     }

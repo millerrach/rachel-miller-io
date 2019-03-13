@@ -9,6 +9,8 @@ import About from './components/About.jsx'
 
 const App = () => {
 
+  let [top, setTop] = useState(0);
+
   const getSize = () => {
     return {
       innerHeight: window.innerHeight,
@@ -23,30 +25,51 @@ const App = () => {
   }
 
   useEffect(() => {
+    setTop(window.scrollY);
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  window.onscroll = function (e) {
-    // false if direction is down and true if up
-    console.log(this.oldScroll > this.scrollY);
-    this.oldScroll = this.scrollY;
-  }
-
   const screenWidth = windowSize.innerWidth;
   const transition = "transform 2s";
+  const notTop = top !== 0;
+
   return (
     <div className="App">
       <Intro screenWidth={screenWidth} />
-      <WriteUp index={0} alignBottom={true} />
-      <JuicelineExamples screenWidth={screenWidth} transition={transition} />
-      <WriteUp screenWidth={screenWidth} index={1} alignBottom={false} />
-      <HondaExamples screenWidth={screenWidth} transition={transition} />
-      <WriteUp screenWidth={screenWidth} index={2} alignBottom={true} />
-      <JubeckExamples screenWidth={screenWidth} transition={transition} />
-      {/* <Stack /> */}
+      <WriteUp
+        index={0}
+        alignBottom={true}
+        notTop={notTop}
+      />
+      <JuicelineExamples
+        screenWidth={screenWidth}
+        transition={transition}
+        notTop={notTop}
+      />
+      <WriteUp
+        screenWidth={screenWidth}
+        index={1}
+        alignBottom={false}
+        notTop={notTop}
+      />
+      <HondaExamples
+        screenWidth={screenWidth}
+        transition={transition}
+        notTop={notTop}
+      />
+      <WriteUp
+        screenWidth={screenWidth}
+        index={2}
+        alignBottom={true}
+        notTop={notTop}
+      />
+      <JubeckExamples
+        screenWidth={screenWidth}
+        transition={transition}
+      />
       <About screenWidth={screenWidth} />
     </div>
   );

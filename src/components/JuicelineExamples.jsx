@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Waypoint } from 'react-waypoint';
 import juicelineDesktop from '../images/portfolio/juicelineDesktop.png';
 import juicelineMobile from '../images/portfolio/juicelineMobile.png';
 import juicelineList from '../images/portfolio/juicelineList.png';
 
-
 const JuicelineExamples = props => {
-    const { screenWidth, transition } = props;
+    const { screenWidth, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const [img3, setImg3] = useState(false);
-    const [img4, setImg4] = useState(false);
     const sm = screenWidth < 600;
-    window.onscroll = function () {
-        if ((this.oldScroll > this.scrollY) === true) {
+    useEffect(() => {
+        if (notTop) {
             setImg1(true);
             setImg2(true);
             setImg3(true);
-            setImg4(true);
         }
-    }
+    }, [notTop]);
     const _trigger = (num) => {
-        return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : num === 3 ? setImg3(true) : num === 4 ? setImg4(true) : setImg2(true) + setImg3(true);
+        return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : num === 3 ? setImg3(true) : setImg2(true) + setImg3(true);
     }
     const areas = sm ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
@@ -41,20 +38,19 @@ const JuicelineExamples = props => {
         },
         juicelineDesktop: {
             gridArea: "img1",
-            padding: "20% 0 20% 0",
+            padding: "5rem 0",
             transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
         juicelineMobile: {
             gridArea: "img2",
-            marginBottom: sm ? "20%" : null,
             transition: transition,
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },
         juicelineList: {
             gridArea: "img3",
             position: "relative",
-            top: sm ? null : "15%",
+            padding: sm ? "5rem 0" : "10rem 0 5rem 0",
             transition: transition,
             transform: img3 ? "translateY(0)" : "translateY(50px)",
         },

@@ -55,7 +55,7 @@ const Intro = props => {
     },
   };
   return (
-    <div className="Intro" style={styles.Intro}>
+    <div id="Intro" style={styles.Intro}>
       <div className="linkBar" style={styles.linkBar}>
         <div className="links" style={styles.links}>
           <Github width={40} />
