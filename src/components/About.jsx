@@ -88,7 +88,7 @@ const About = props => {
                     <div style={heading}>Thank You.</div>
                     <div style={{ padding: "0.5em 0px 1.5em 0", fontWeight: 300 }}>mail@rachelmiller.io</div>
                     <div className="githubContainer" style={styles.githubContainer}>
-                        <Github width={githubWidth} />
+                        <Github width={githubWidth} absolute={true} />
                     </div>
                     <Waypoint onEnter={_toggle} onLeave={_toggle}>
                         <div className="siteBottom" style={styles.siteBottom}></div>

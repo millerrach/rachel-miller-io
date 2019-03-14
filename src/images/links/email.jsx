@@ -5,7 +5,6 @@ const email = props => {
     const [hover, setHover] = useState(false);
     const styles = {
         email: {
-            position: "absolute",
             transition: "all 500ms",
             width: hover ? props.width + 5 : props.width,
         }
@@ -17,8 +16,8 @@ const email = props => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <svg style={styles.email} viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path style={{ transition: "all 500ms" }} d="M30.3333 0.666672H3.66667C1.83334 0.666672 0.350003 2.16667 0.350003 4L0.333336 24C0.333336 25.8333 1.83334 27.3333 3.66667 27.3333H30.3333C32.1667 27.3333 33.6667 25.8333 33.6667 24V4C33.6667 2.16667 32.1667 0.666672 30.3333 0.666672ZM30.3333 7.33334L17 15.6667L3.66667 7.33334V4L17 12.3333L30.3333 4V7.33334Z" fill={hover ? "#D3D8E0" : "#fff"} />
+                <svg style={styles.email} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path style={{ transition: "all 500ms" }} d="M36 0H4C1.8 0 0.02 1.96875 0.02 4.375L0 30.625C0 33.0313 1.8 35 4 35H36C38.2 35 40 33.0313 40 30.625V4.375C40 1.96875 38.2 0 36 0ZM36 8.75L20 19.6875L4 8.75V4.375L20 15.3125L36 4.375V8.75Z" fill={hover ? "#D3D8E0" : "#fff"} />
                 </svg>
             </a>
         </div>
