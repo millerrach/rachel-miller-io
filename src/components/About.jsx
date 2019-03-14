@@ -5,7 +5,7 @@ import Github from '../images/links/github.jsx'
 
 
 const heading = { fontSize: "2rem", fontWeight: 700 };
-const githubWidth = 50;
+const githubWidth = 40;
 
 const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
 
@@ -82,7 +82,7 @@ const About = props => {
                 </div>
                 <div className="whereAmI" style={styles.whereAmI}>
                     <div style={heading}>Where am I?</div>
-                    <div style={{ paddingTop: "1em" }}>In the last 2.5 years, my husband and I have lived in 16 countries. We are currently in Croatia but soon headed to Minneapolis, MN.</div>
+                    <div style={{ paddingTop: "1em" }}>In the last 2.5 years, my husband and I have lived in 16 countries but are now happily settled in Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={heading}>Thank You.</div>

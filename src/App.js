@@ -41,7 +41,7 @@ const App = () => {
       <Intro screenWidth={screenWidth} />
       <WriteUp
         index={0}
-        alignBottom={true}
+        lineHeight={1.4}
         notTop={notTop}
       />
       <JuicelineExamples
@@ -52,7 +52,7 @@ const App = () => {
       <WriteUp
         screenWidth={screenWidth}
         index={1}
-        alignBottom={false}
+        lineHeight={2}
         notTop={notTop}
       />
       <HondaExamples
@@ -63,7 +63,7 @@ const App = () => {
       <WriteUp
         screenWidth={screenWidth}
         index={2}
-        alignBottom={true}
+        lineHeight={1.75}
         notTop={notTop}
       />
       <JubeckExamples

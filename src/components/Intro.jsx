@@ -32,11 +32,11 @@ const Intro = props => {
     },
     linkBar: {
       gridArea: "links",
-      justifySelf: sm ? "start" : "center",
       width: "100%",
-      alignSelf: sm ? "center" : null,
+      height: sm ? null : "88vh",
+      alignSelf: sm ? "end" : "start",
       display: "grid",
-      padding: !sm ? "2em 0" : null,
+      padding: !sm ? "6vh 0" : null,
       transform: loaded ? "translateX(0)" : "translateX(-500%)",
       opacity: loaded ? 1 : 0,
       transition: "all 2s",
@@ -61,8 +61,8 @@ const Intro = props => {
     <div id="Intro" style={styles.Intro}>
       <div className="linkBar" style={styles.linkBar}>
         <div className="links" style={styles.links}>
-          <Github width={sm ? 30 : 40} absolute={false} />
-          <Email width={sm ? 30 : 40} />
+          <Github width={sm ? 25 : 30} absolute={false} />
+          <Email width={sm ? 23 : 28} />
         </div>
         {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: "center", width: 40 }} /> : null}
       </div>

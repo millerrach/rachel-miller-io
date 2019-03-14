@@ -24,7 +24,7 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const { index, alignBottom, notTop } = props;
+  const { index, lineHeight, notTop } = props;
   const [opacity, setOpacity] = useState(0);
   const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
@@ -62,24 +62,17 @@ const WriteUp = props => {
       transition: "all 1s",
       transform: animate ? "translateY(0)" : "translateY(50px)",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 3,
+      lineHeight: animate ? 1.5 : 2.5,
     },
-    stackTop: {
+    stack: {
       gridArea: "2 / 10 / 3 / 12",
-      lineHeight: "1.5",
       justifySelf: "end",
-    },
-    stackBottom: {
-      gridArea: "stac",
-      justifySelf: "end",
-      alignSelf: "end",
-      lineHeight: "1.5",
     },
     skill: {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 3,
+      lineHeight: animate ? lineHeight : lineHeight + 1,
     }
   };
   return (
@@ -88,7 +81,7 @@ const WriteUp = props => {
       <Waypoint onEnter={_trigger}>
         <div className="description" style={styles.description}>{wui.description}</div>
       </Waypoint>
-      <div className="stack" style={alignBottom ? styles.stackBottom : styles.stackTop}>
+      <div className="stack" style={styles.stack}>
         {skills.map((skill, i) => <div key={i} style={styles.skill}>{skill}</div>)}
       </div>
     </div>
