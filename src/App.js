@@ -33,44 +33,61 @@ const App = () => {
   }, []);
 
   const screenWidth = windowSize.innerWidth;
+  const xs = screenWidth < 768;
+  const sm = screenWidth >= 768 && screenWidth < 992;
+  const md = screenWidth >= 992 && screenWidth < 1200;
+  const lg = screenWidth >= 1200;
+  const belowOr1024 = screenWidth <= 1024;
+  const mobileTablet = screenWidth < 1200;
   const transition = "transform 2s";
   const notTop = top !== 0;
 
   return (
     <div className="App">
-      <Intro screenWidth={screenWidth} />
+      <Intro xs={xs} screenWidth={screenWidth} />
       <WriteUp
+        xs={xs}
+        sm={sm}
+        md={md}
+        lg={lg}
         index={0}
-        lineHeight={1.4}
+        lineHeight={belowOr1024 ? 1.4 : 1.3}
         notTop={notTop}
       />
       <JuicelineExamples
-        screenWidth={screenWidth}
+        xs={xs}
         transition={transition}
         notTop={notTop}
       />
       <WriteUp
-        screenWidth={screenWidth}
+        xs={xs}
+        sm={sm}
+        md={md}
+        lg={lg}
         index={1}
-        lineHeight={2}
+        lineHeight={belowOr1024 ? 2 : 1.75}
         notTop={notTop}
       />
       <HondaExamples
-        screenWidth={screenWidth}
+        xs={xs}
         transition={transition}
         notTop={notTop}
       />
       <WriteUp
-        screenWidth={screenWidth}
+        xs={xs}
+        sm={sm}
+        md={md}
+        lg={lg}
         index={2}
-        lineHeight={1.75}
+        lineHeight={belowOr1024 ? 1.75 : 1.3}
         notTop={notTop}
       />
       <JubeckExamples
-        screenWidth={screenWidth}
+        xs={xs}
         transition={transition}
+        notTop={notTop}
       />
-      <About screenWidth={screenWidth} />
+      <About mobileTablet={mobileTablet} />
     </div>
   );
 }

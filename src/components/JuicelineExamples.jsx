@@ -5,11 +5,10 @@ import juicelineMobile from '../images/portfolio/juicelineMobile.png';
 import juicelineList from '../images/portfolio/juicelineList.png';
 
 const JuicelineExamples = props => {
-    const { screenWidth, transition, notTop } = props;
+    const { xs, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const [img3, setImg3] = useState(false);
-    const sm = screenWidth < 600;
     useEffect(() => {
         if (notTop) {
             setImg1(true);
@@ -20,7 +19,7 @@ const JuicelineExamples = props => {
     const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : num === 3 ? setImg3(true) : setImg2(true) + setImg3(true);
     }
-    const areas = sm ? `
+    const areas = xs ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". .    img2 img2 img2 img2 img2 img2 img2 img2 .    ."
                 ". .    img3 img3 img3 img3 img3 img3 img3 img3 .    ."` :
@@ -50,7 +49,7 @@ const JuicelineExamples = props => {
         juicelineList: {
             gridArea: "img3",
             position: "relative",
-            padding: sm ? "5rem 0" : "10rem 0 5rem 0",
+            padding: xs ? "5rem 0" : "10rem 0 5rem 0",
             transition: transition,
             transform: img3 ? "translateY(0)" : "translateY(50px)",
         },
@@ -62,7 +61,7 @@ const JuicelineExamples = props => {
                     <img src={juicelineDesktop} className="juicelineDesktop example" style={styles.juicelineDesktop} alt="Juiceline Example 1" />
                 </div>
             </Waypoint>
-            {sm ?
+            {xs ?
                 <div>
                     <Waypoint onEnter={_trigger.bind(null, 2)}>
                         <div style={styles.JuicelineExamples}>

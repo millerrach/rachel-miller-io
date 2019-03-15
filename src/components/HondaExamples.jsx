@@ -5,10 +5,9 @@ import honda_2 from '../images/portfolio/honda_2.png';
 
 
 const HondaExamples = props => {
-    const { screenWidth, transition, notTop } = props;
+    const { xs, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
-    const sm = screenWidth < 600;
     useEffect(() => {
         if (notTop) {
             setImg1(true);
@@ -18,7 +17,7 @@ const HondaExamples = props => {
     const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
     }
-    const areas = sm ? `
+    const areas = xs ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 img2 img2 img2 img2 img2 img2 ."` :
         `

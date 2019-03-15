@@ -5,10 +5,9 @@ import jubeck_2 from '../images/portfolio/jubeck_2.png';
 
 
 const JubeckExamples = props => {
-    const { screenWidth, transition, notTop } = props;
+    const { xs, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
-    const sm = screenWidth < 600;
     useEffect(() => {
         if (notTop) {
             setImg1(true);
@@ -18,7 +17,7 @@ const JubeckExamples = props => {
     const _trigger = (num) => {
         return num === 1 ? setImg1(true) : num === 2 ? setImg2(true) : null;
     }
-    const areas = sm ? `
+    const areas = xs ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 img2 img2 img2 img2 img2 img2 ."` :
         `

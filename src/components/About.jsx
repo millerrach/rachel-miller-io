@@ -5,13 +5,12 @@ import Github from '../images/links/github.jsx'
 
 
 const heading = { fontSize: "2rem", fontWeight: 700 };
-const githubWidth = 40;
+const githubWidth = 35;
 
 const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
 
 const About = props => {
-    const { screenWidth } = props;
-    const smMd = screenWidth < 800;
+    const { mobileTablet } = props;
     const [showGithub, setGithub] = useState(false);
     const _toggle = () => {
         setGithub(!showGithub)
@@ -29,7 +28,7 @@ const About = props => {
             zIndex: 0,
             width: "100%",
             objectFit: "cover",
-            height: smMd ? "100vh" : null,
+            height: mobileTablet ? "100vh" : null,
         },
         scrollingText: {
             display: "grid",

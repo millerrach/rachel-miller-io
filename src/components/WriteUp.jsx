@@ -24,7 +24,7 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const { index, lineHeight, notTop } = props;
+  const { xs, sm, md, lg, index, lineHeight, notTop } = props;
   const [opacity, setOpacity] = useState(0);
   const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
@@ -42,12 +42,16 @@ const WriteUp = props => {
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "3em 1fr",
-      gridTemplateAreas: `
+      gridTemplateAreas: xs || sm || md ? `
       ". name name name name name name name . stac stac . "
-      ". desc desc desc desc desc desc desc . stac stac . "`,
-      margin: "3em 0",
+      ". desc desc desc desc desc desc desc . stac stac . "` :
+        `
+      ". name name name name name name . . stac stac . "
+      ". desc desc desc desc desc desc . . stac stac . "`,
+      margin: xs || sm ? "4em 0" : md ? "4em 0" : "8em 0",
       opacity: opacity,
       transition: "all 2s",
+      fontSize: xs ? null : "1.25em",
     },
     name: {
       gridArea: "name",
@@ -63,10 +67,14 @@ const WriteUp = props => {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       opacity: animate ? 1 : 0,
       lineHeight: animate ? 1.5 : 2.5,
+      fontWeight: xs ? null : 300,
+      letterSpacing: xs ? 0 : "1.5px",
     },
     stack: {
-      gridArea: "2 / 10 / 3 / 12",
+      gridArea: xs ? "2 / 10 / 3 / 12" : "stac",
       justifySelf: "end",
+      fontWeight: xs ? null : 300,
+      alignSelf: sm ? "end" : md || lg ? "center" : null,
     },
     skill: {
       transform: animate ? "translateY(0)" : "translateY(50px)",
