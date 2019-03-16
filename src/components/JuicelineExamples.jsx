@@ -37,7 +37,7 @@ const JuicelineExamples = props => {
         },
         juicelineDesktop: {
             gridArea: "img1",
-            padding: "5rem 0",
+            padding: xs ? "5rem 0" : "12rem 0",
             transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
@@ -49,7 +49,7 @@ const JuicelineExamples = props => {
         juicelineList: {
             gridArea: "img3",
             position: "relative",
-            padding: xs ? "5rem 0" : "10rem 0 5rem 0",
+            padding: xs ? "5rem 0" : "12rem 0",
             transition: transition,
             transform: img3 ? "translateY(0)" : "translateY(50px)",
         },

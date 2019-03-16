@@ -4,23 +4,23 @@ import croatia from '../images/about/croatia.jpg';
 import Github from '../images/links/github.jsx'
 
 
-const heading = { fontSize: "2rem", fontWeight: 700 };
-const githubWidth = 35;
 
 const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
 
 const About = props => {
-    const { mobileTablet } = props;
+    const { xs, mobileTablet } = props;
     const [showGithub, setGithub] = useState(false);
     const _toggle = () => {
         setGithub(!showGithub)
     }
+    const heading = { fontSize: xs ? "2rem" : "2.75rem", fontWeight: 700 };
+    const githubWidth = xs ? 35 : 50;
     const styles = {
         About: {
             color: "#fff",
             display: "grid",
             position: "relative",
-            fontSize: "1.5rem",
+            fontSize: xs ? "1.5rem" : "2.25rem",
         },
         croatia: {
             position: "sticky",
@@ -36,7 +36,7 @@ const About = props => {
             gridTemplateAreas: `
             ". stc stc stc stc stc stc . . . ."
             ". amI amI amI amI amI amI . . . ."
-            ". thx thx .   .   .   .   . . . ."
+            ". thx thx thx thx .   .   . . . ."
             `,
         },
         skills: {
@@ -81,7 +81,7 @@ const About = props => {
                 </div>
                 <div className="whereAmI" style={styles.whereAmI}>
                     <div style={heading}>Where am I?</div>
-                    <div style={{ paddingTop: "1em" }}>In the last 2.5 years, my husband and I have lived in 16 countries but are now happily settled in Minneapolis, MN.</div>
+                    <div style={{ paddingTop: "1em" }}>In the last 2 {'\u00BD'} years, my husband and I have lived in 16 countries but are now happily settled in Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={heading}>Thank You.</div>

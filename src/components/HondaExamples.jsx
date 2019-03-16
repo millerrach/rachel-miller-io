@@ -34,13 +34,13 @@ const HondaExamples = props => {
         },
         honda_1: {
             gridArea: "img1",
-            margin: "20% 0 20% 0",
+            padding: xs ? "5rem 0" : "12rem 0",
             transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
         honda_2: {
             gridArea: "img2",
-            margin: "0 0 25% 0",
+            padding: xs ? "0 0 5rem 0" : "0 0 12rem 0",
             transition: transition,
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },

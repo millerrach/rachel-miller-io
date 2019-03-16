@@ -44,7 +44,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <Intro xs={xs} screenWidth={screenWidth} />
+      <Intro
+        xs={xs}
+        sm={sm}
+        md={md}
+        screenWidth={screenWidth}
+      />
       <WriteUp
         xs={xs}
         sm={sm}
@@ -79,7 +84,7 @@ const App = () => {
         md={md}
         lg={lg}
         index={2}
-        lineHeight={belowOr1024 ? 1.75 : 1.3}
+        lineHeight={belowOr1024 ? 1.5 : 1.3}
         notTop={notTop}
       />
       <JubeckExamples
@@ -87,7 +92,7 @@ const App = () => {
         transition={transition}
         notTop={notTop}
       />
-      <About mobileTablet={mobileTablet} />
+      <About xs={xs} mobileTablet={mobileTablet} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Github from "../images/links/github.jsx";
 
 
 const Intro = props => {
-  const { xs, screenWidth } = props;
+  const { xs, sm, md, screenWidth } = props;
   const tablet = screenWidth > 760 && screenWidth < 1030;
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -14,8 +14,17 @@ const Intro = props => {
   const areas = xs ?
     `
         ". links .     .     .     .     .     .     .     .     . ."
-        ". about about about about about about about about about . ."` :
-    `
+        ". about about about about about about about about about . ."`
+    : sm ?
+      `
+        "links .     .     .     .     .     .     .     .     .     .     ."
+        "links .     about about about about about about about about about ."`
+      : md ?
+        `
+        "links .     .     .     .     .     .     .     . . . ."
+        "links .     about about about about about about . . . ."`
+        :
+        `
         "links .     .     .     .     .     .     .     . . . ."
         "links .     about about about about about about . . . ."`;
   const styles = {
@@ -51,10 +60,12 @@ const Intro = props => {
     text: {
       gridArea: "about",
       display: "grid",
+      gridAutoRows: "min-content",
       alignSelf: "center",
       opacity: loaded ? 1 : 0,
       transition: "opacity 1s",
-      fontSize: xs ? "1.75em" : "2.75em",
+      fontSize: xs ? "1.75em" : "3.5em",
+      fontWeight: xs ? null : 700,
     },
   };
   return (
@@ -69,11 +80,10 @@ const Intro = props => {
       <div className="text" style={styles.text}>
         <div
           style={{ paddingBottom: "1em" }}>
-          I'm Rachel Miller, Front-End Web Developer and Designer.
+          Hi, I'm Rachel Miller, Front-End Web Developer and Designer.
           </div>
         <div>
-          Working freelance, with a focus on React and custom progressive web
-          apps.
+          My focus is React and custom web apps.
           </div>
       </div>
     </div >

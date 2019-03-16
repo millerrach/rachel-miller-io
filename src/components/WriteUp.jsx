@@ -18,7 +18,7 @@ const writeUps = [
   {
     name: "Jubeck Brewery",
     description:
-      "This project was done for Jubeck New World Brewing. They were looking to track their beer memberships but couldn’t find a solution, so they came to us for a custom app. This allows them to add pints and growlers and also edit and renew memberships.",
+      "This project was done for Jubeck New World Brewing so they can track their beer memberships. This web app allows them to add pints and growlers and also edit and renew memberships.",
     stack: ["React", "Redux", "MUI", "JS", "CSS3", "Sass"]
   },
 ];
@@ -48,17 +48,17 @@ const WriteUp = props => {
         `
       ". name name name name name name . . stac stac . "
       ". desc desc desc desc desc desc . . stac stac . "`,
-      margin: xs || sm ? "4em 0" : md ? "4em 0" : "8em 0",
+      margin: xs || sm ? "4rem 0" : md ? "4rem 0" : "8rem 0",
       opacity: opacity,
       transition: "all 2s",
-      fontSize: xs ? null : "1.25em",
+      fontSize: xs ? null : sm || md ? "1.25rem" : "2rem",
     },
     name: {
       gridArea: "name",
       transition: "all 1s",
       transform: animate ? "translateY(0)" : "translateY(50px)",
       opacity: animate ? 1 : 0,
-      fontSize: "1.5em",
+      fontSize: xs ? "1.5rem" : sm || md ? "1.75rem" : "3rem",
     },
     description: {
       gridArea: "desc",
