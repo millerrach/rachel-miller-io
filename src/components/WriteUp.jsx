@@ -74,7 +74,7 @@ const WriteUp = props => {
       gridArea: xs ? "2 / 10 / 3 / 12" : "stac",
       justifySelf: "end",
       fontWeight: xs ? null : 300,
-      alignSelf: sm ? "end" : md || lg ? "center" : null,
+      alignSelf: sm || md || lg ? "end" : null,
     },
     skill: {
       transform: animate ? "translateY(0)" : "translateY(50px)",
