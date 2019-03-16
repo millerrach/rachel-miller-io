@@ -38,7 +38,6 @@ const App = () => {
   const md = screenWidth >= 992 && screenWidth < 1200;
   const lg = screenWidth >= 1200;
   const belowOr1024 = screenWidth <= 1024;
-  const mobileTablet = screenWidth < 1200;
   const transition = "transform 2s";
   const notTop = top !== 0;
 
@@ -61,6 +60,8 @@ const App = () => {
       />
       <JuicelineExamples
         xs={xs}
+        sm={sm}
+        md={md}
         transition={transition}
         notTop={notTop}
       />
@@ -75,6 +76,8 @@ const App = () => {
       />
       <HondaExamples
         xs={xs}
+        sm={sm}
+        md={md}
         transition={transition}
         notTop={notTop}
       />
@@ -89,10 +92,12 @@ const App = () => {
       />
       <JubeckExamples
         xs={xs}
+        sm={sm}
+        md={md}
         transition={transition}
         notTop={notTop}
       />
-      <About xs={xs} mobileTablet={mobileTablet} />
+      <About xs={xs} />
     </div>
   );
 }

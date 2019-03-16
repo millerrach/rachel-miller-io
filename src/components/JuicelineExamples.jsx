@@ -5,7 +5,7 @@ import juicelineMobile from '../images/portfolio/juicelineMobile.png';
 import juicelineList from '../images/portfolio/juicelineList.png';
 
 const JuicelineExamples = props => {
-    const { xs, transition, notTop } = props;
+    const { xs, sm, md, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const [img3, setImg3] = useState(false);
@@ -23,9 +23,13 @@ const JuicelineExamples = props => {
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". .    img2 img2 img2 img2 img2 img2 img2 img2 .    ."
                 ". .    img3 img3 img3 img3 img3 img3 img3 img3 .    ."` :
-        `
+        sm || md ?
+            `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
-                ". img2 img2 img2 img2 .    .    img3 img3 img3 img3 ."`;
+                ". img2 img2 img2 img2 .    .    img3 img3 img3 img3 ."` :
+            `
+                ". . img1 img1 img1 img1 img1 img1 img1 img1 . ."
+                ". . img2 img2 img2 .    .    img3 img3 img3 . ."`
     const styles = {
         JuicelineExamples: {
             backgroundColor: "#F7F7F7",
@@ -37,7 +41,7 @@ const JuicelineExamples = props => {
         },
         juicelineDesktop: {
             gridArea: "img1",
-            padding: xs ? "5rem 0" : "12rem 0",
+            padding: xs ? "5rem 0" : sm ? "8rem 0" : "12rem 0",
             transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
@@ -49,7 +53,7 @@ const JuicelineExamples = props => {
         juicelineList: {
             gridArea: "img3",
             position: "relative",
-            padding: xs ? "5rem 0" : "12rem 0",
+            padding: xs ? "5rem 0" : sm ? "8rem 0" : "12rem 0",
             transition: transition,
             transform: img3 ? "translateY(0)" : "translateY(50px)",
         },

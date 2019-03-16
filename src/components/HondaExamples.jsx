@@ -5,7 +5,7 @@ import honda_2 from '../images/portfolio/honda_2.png';
 
 
 const HondaExamples = props => {
-    const { xs, transition, notTop } = props;
+    const { xs, sm, md, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     useEffect(() => {
@@ -20,9 +20,13 @@ const HondaExamples = props => {
     const areas = xs ? `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
                 ". img2 img2 img2 img2 img2 img2 img2 img2 img2 img2 ."` :
-        `
+        sm || md ?
+            `
                 ". .    img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
-                ". img2 img2 img2 img2 img2 img2 img2 img2 img2 .    ."`;
+                ". img2 img2 img2 img2 img2 img2 img2 img2 img2 .    ."` :
+            `
+                ". . .    img1 img1 img1 img1 img1 img1 img1 . ."
+                ". . img2 img2 img2 img2 img2 img2 img2 .    . ."`;
     const styles = {
         HondaExamples: {
             backgroundColor: "rgba(214, 229, 226, .7",
@@ -34,13 +38,13 @@ const HondaExamples = props => {
         },
         honda_1: {
             gridArea: "img1",
-            padding: xs ? "5rem 0" : "12rem 0",
+            padding: xs ? "5rem 0" : sm ? "8rem 0" : "12rem 0",
             transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
         honda_2: {
             gridArea: "img2",
-            padding: xs ? "0 0 5rem 0" : "0 0 12rem 0",
+            padding: xs ? "0 0 5rem 0" : sm ? "0 0 8rem 0" : "0 0 12rem 0",
             transition: transition,
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },

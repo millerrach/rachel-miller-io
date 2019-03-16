@@ -8,7 +8,7 @@ import Github from '../images/links/github.jsx'
 const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
 
 const About = props => {
-    const { xs, mobileTablet } = props;
+    const { xs } = props;
     const [showGithub, setGithub] = useState(false);
     const _toggle = () => {
         setGithub(!showGithub)
@@ -28,7 +28,7 @@ const About = props => {
             zIndex: 0,
             width: "100%",
             objectFit: "cover",
-            height: mobileTablet ? "100vh" : null,
+            height: "100vh",
         },
         scrollingText: {
             display: "grid",

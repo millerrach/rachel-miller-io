@@ -46,8 +46,8 @@ const WriteUp = props => {
       ". name name name name name name name . stac stac . "
       ". desc desc desc desc desc desc desc . stac stac . "` :
         `
-      ". name name name name name name . . stac stac . "
-      ". desc desc desc desc desc desc . . stac stac . "`,
+      ". . name name name name name name . stac . . "
+      ". . desc desc desc desc desc desc . stac . . "`,
       margin: xs || sm ? "4rem 0" : md ? "4rem 0" : "8rem 0",
       opacity: opacity,
       transition: "all 2s",
