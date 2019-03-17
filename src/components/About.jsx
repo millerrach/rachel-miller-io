@@ -8,19 +8,19 @@ import Github from '../images/links/github.jsx'
 const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
 
 const About = props => {
-    const { xs } = props;
+    const { xs, sm, md, lg, xl } = props;
     const [showGithub, setGithub] = useState(false);
     const _toggle = () => {
         setGithub(!showGithub)
     }
-    const heading = { fontSize: xs ? "2rem" : "2.75rem", fontWeight: 700 };
-    const githubWidth = xs ? 35 : 50;
+    const heading = { fontSize: xs ? "2rem" : sm || md || lg ? "2.75rem" : xl ? "3.5rem" : "5rem", fontWeight: 700 };
+    const githubWidth = xs ? 35 : sm || md || lg ? 50 : xl ? 60 : 100;
     const styles = {
         About: {
             color: "#fff",
             display: "grid",
             position: "relative",
-            fontSize: xs ? "1.5rem" : "2.25rem",
+            fontSize: xs ? "1.5rem" : sm || md || lg ? "2.25rem" : xl ? "3rem" : "4.5rem",
         },
         croatia: {
             position: "sticky",
@@ -33,11 +33,22 @@ const About = props => {
         scrollingText: {
             display: "grid",
             gridTemplateColumns: "repeat(12, 1fr)",
-            gridTemplateAreas: `
+            gridTemplateAreas: xs | sm || md || lg ?
+                `
             ". stc stc stc stc stc stc . . . ."
             ". amI amI amI amI amI amI . . . ."
-            ". thx thx thx thx .   .   . . . ."
-            `,
+            ". thx thx thx thx .   . . . . ."
+            ` : xl ?
+                    `
+            ". stc stc stc stc . . . . . ."
+            ". amI amI amI amI . . . . . ."
+            ". thx thx thx thx .   . . . . ."
+            ` :
+                    `
+            ". stc stc stc . . . . . . ."
+            ". amI amI amI . . . . . . ."
+            ". thx thx thx . .   . . . . ."
+            ` ,
         },
         skills: {
             position: "relative",

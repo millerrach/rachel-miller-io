@@ -5,7 +5,7 @@ import juicelineMobile from '../images/portfolio/juicelineMobile.png';
 import juicelineList from '../images/portfolio/juicelineList.png';
 
 const JuicelineExamples = props => {
-    const { xs, sm, md, transition, notTop } = props;
+    const { xs, sm, md, lg, xl, transition, notTop } = props;
     const [img1, setImg1] = useState(false);
     const [img2, setImg2] = useState(false);
     const [img3, setImg3] = useState(false);
@@ -26,10 +26,13 @@ const JuicelineExamples = props => {
         sm || md ?
             `
                 ". img1 img1 img1 img1 img1 img1 img1 img1 img1 img1 ."
-                ". img2 img2 img2 img2 .    .    img3 img3 img3 img3 ."` :
-            `
+                ". img2 img2 img2 img2 .    .    img3 img3 img3 img3 ."` : lg || xl ?
+                `
                 ". . img1 img1 img1 img1 img1 img1 img1 img1 . ."
-                ". . img2 img2 img2 .    .    img3 img3 img3 . ."`
+                ". . img2 img2 img2 .    .    img3 img3 img3 . ."` :
+                `
+                ". . . img1 img1 img1 img1 img1 img1 . . ."
+                ". . . img2 img2 .    .    img3 img3 . . ."`;
     const styles = {
         JuicelineExamples: {
             backgroundColor: "#F7F7F7",

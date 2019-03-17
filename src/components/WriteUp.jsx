@@ -24,7 +24,7 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const { xs, sm, md, lg, index, lineHeight, notTop } = props;
+  const { xs, sm, md, lg, xl, index, notTop } = props;
   const [opacity, setOpacity] = useState(0);
   const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
@@ -42,12 +42,19 @@ const WriteUp = props => {
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "3em 1fr",
-      gridTemplateAreas: xs || sm || md ? `
-      ". name name name name name name name . stac stac . "
-      ". desc desc desc desc desc desc desc . stac stac . "` :
+      gridTemplateAreas: xs ?
         `
-      ". . name name name name name name . stac . . "
-      ". . desc desc desc desc desc desc . stac . . "`,
+      ". name name name name name name name . .    .    . "
+      ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
+          `
+      ". name name name name name name name . stac stac . "
+      ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
+            `
+      ". . name name name name name name . . . . "
+      ". . desc desc desc desc desc desc . stac . . "` :
+            `
+      ". . . name name name name . stac . . . "
+      ". . . desc desc desc desc . stac . . . "`,
       margin: xs || sm ? "4rem 0" : md ? "4rem 0" : "8rem 0",
       opacity: opacity,
       transition: "all 2s",
@@ -71,16 +78,16 @@ const WriteUp = props => {
       letterSpacing: xs ? 0 : "1.5px",
     },
     stack: {
-      gridArea: xs ? "2 / 10 / 3 / 12" : "stac",
+      gridArea: "stac",
       justifySelf: "end",
       fontWeight: xs ? null : 300,
-      alignSelf: sm || md || lg ? "end" : null,
+      alignSelf: xs ? "start" : sm || md || lg || xl ? "end" : "center",
     },
     skill: {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? lineHeight : lineHeight + 1,
+      lineHeight: animate ? 1.5 : 2.5,
     }
   };
   return (

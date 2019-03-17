@@ -5,7 +5,7 @@ import Github from "../images/links/github.jsx";
 
 
 const Intro = props => {
-  const { xs, sm, md, screenWidth } = props;
+  const { xs, sm, md, lg, xl, screenWidth } = props;
   const tablet = screenWidth > 760 && screenWidth < 1030;
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -23,10 +23,13 @@ const Intro = props => {
         `
         "links .     .     .     .     .     .     .     . . . ."
         "links .     about about about about about about . . . ."`
-        :
-        `
+        : lg ?
+          `
         "links .     .     .     .     .     .     .     . . . ."
-        "links .     about about about about about about . . . ."`;
+        "links .     about about about about about about . . . ."` :
+          `
+        "links .     .     .     .     .     .     .     . . . ."
+        "links .     .     about about about about about . . . ."`;
   const styles = {
     Intro: {
       backgroundColor: "#000",
@@ -52,7 +55,7 @@ const Intro = props => {
     links: {
       display: "flex",
       width: "100%",
-      height: xs ? "8em" : "10em",
+      height: xs ? "8em" : sm || md || lg ? "10em" : xl ? "15em" : "20em",
       flexDirection: "column",
       justifyContent: "space-between",
       alignItems: tablet ? "flex-end" : "center",
@@ -64,7 +67,7 @@ const Intro = props => {
       alignSelf: "center",
       opacity: loaded ? 1 : 0,
       transition: "opacity 1s",
-      fontSize: xs ? "1.75em" : "3.5em",
+      fontSize: xs ? "1.75em" : sm || md || lg ? "3.5em" : xl ? "4em" : "6em",
       fontWeight: xs ? null : 700,
     },
   };
@@ -72,10 +75,10 @@ const Intro = props => {
     <div id="Intro" style={styles.Intro}>
       <div className="linkBar" style={styles.linkBar}>
         <div className="links" style={styles.links}>
-          <Github width={xs ? 28 : 30} absolute={false} />
-          <Email width={xs ? 25 : 28} />
+          <Github width={xs ? 28 : sm || md ? 30 : lg ? 35 : xl ? 45 : 60} absolute={false} />
+          <Email width={xs ? 25 : sm || md ? 27 : lg ? 32 : xl ? 42 : 57} />
         </div>
-        {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: tablet ? "end" : "center", width: 40 }} /> : null}
+        {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: tablet ? "end" : "center", width: xs ? 25 : sm || md ? 27 : lg ? 32 : xl ? 42 : 57 }} /> : null}
       </div>
       <div className="text" style={styles.text}>
         <div

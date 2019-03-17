@@ -36,7 +36,8 @@ const App = () => {
   const xs = screenWidth < 768;
   const sm = screenWidth >= 768 && screenWidth < 992;
   const md = screenWidth >= 992 && screenWidth < 1200;
-  const lg = screenWidth >= 1200;
+  const lg = screenWidth >= 1200 && screenWidth < 2560;
+  const xl = screenWidth >= 2560 && screenWidth < 4000;
   const belowOr1024 = screenWidth <= 1024;
   const transition = "transform 2s";
   const notTop = top !== 0;
@@ -47,6 +48,8 @@ const App = () => {
         xs={xs}
         sm={sm}
         md={md}
+        lg={lg}
+        xl={xl}
         screenWidth={screenWidth}
       />
       <WriteUp
@@ -54,14 +57,16 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
+        xl={xl}
         index={0}
-        lineHeight={belowOr1024 ? 1.4 : 1.3}
         notTop={notTop}
       />
       <JuicelineExamples
         xs={xs}
         sm={sm}
         md={md}
+        lg={lg}
+        xl={xl}
         transition={transition}
         notTop={notTop}
       />
@@ -70,14 +75,16 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
+        xl={xl}
         index={1}
-        lineHeight={belowOr1024 ? 2 : 1.75}
         notTop={notTop}
       />
       <HondaExamples
         xs={xs}
         sm={sm}
         md={md}
+        lg={lg}
+        xl={xl}
         transition={transition}
         notTop={notTop}
       />
@@ -86,18 +93,26 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
+        xl={xl}
         index={2}
-        lineHeight={belowOr1024 ? 1.5 : 1.3}
         notTop={notTop}
       />
       <JubeckExamples
         xs={xs}
         sm={sm}
         md={md}
+        lg={lg}
+        xl={xl}
         transition={transition}
         notTop={notTop}
       />
-      <About xs={xs} />
+      <About
+        xs={xs}
+        sm={sm}
+        md={md}
+        lg={lg}
+        xl={xl}
+      />
     </div>
   );
 }
