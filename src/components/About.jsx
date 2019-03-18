@@ -13,14 +13,15 @@ const About = props => {
     const _toggle = () => {
         setGithub(!showGithub)
     }
-    const heading = { fontSize: xs ? "2rem" : sm || md || lg ? "2.75rem" : xl ? "3.5rem" : "5rem", fontWeight: 700 };
-    const githubWidth = xs ? 35 : sm || md || lg ? 50 : xl ? 60 : 100;
+    const heading = { fontSize: xs ? "1.75rem" : sm || md || lg ? "2.5rem" : xl ? "3.5rem" : "5rem", fontWeight: 700 };
+    const githubWidth = xs ? 35 : sm || md || lg ? 45 : xl ? 60 : 100;
     const styles = {
         About: {
             color: "#fff",
             display: "grid",
             position: "relative",
-            fontSize: xs ? "1.5rem" : sm || md || lg ? "2.25rem" : xl ? "3rem" : "4.5rem",
+            fontSize: xs ? "1.5rem" : sm || md || lg ? "2rem" : xl ? "3rem" : "4.5rem",
+            lineHeight: 1.25,
         },
         croatia: {
             position: "sticky",
@@ -46,7 +47,7 @@ const About = props => {
             ` :
                     `
             ". stc stc stc . . . . . . ."
-            ". amI amI amI . . . . . . ."
+            ". amI amI amI amI . . . . . ."
             ". thx thx thx . .   . . . . ."
             ` ,
         },
@@ -92,7 +93,7 @@ const About = props => {
                 </div>
                 <div className="whereAmI" style={styles.whereAmI}>
                     <div style={heading}>Where am I?</div>
-                    <div style={{ paddingTop: "1em" }}>In the last 2 {'\u00BD'} years, my husband and I have lived in 16 countries but are now happily settled in Minneapolis, MN.</div>
+                    <div style={{ paddingTop: "1em", fontSize: xs ? "1.5rem" : sm || md || lg ? "2rem" : xl ? "2.75rem" : "4.25rem" }}>In the last 2 {'\u00BD'} years, my husband and I have lived in 16 countries but are now happily settled in Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={heading}>Thank You.</div>
