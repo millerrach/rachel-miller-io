@@ -56,7 +56,6 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
-        xl={xl}
         index={0}
         notTop={notTop}
       />
@@ -74,7 +73,6 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
-        xl={xl}
         index={1}
         notTop={notTop}
       />
@@ -83,7 +81,6 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
-        xl={xl}
         transition={transition}
         notTop={notTop}
       />
@@ -92,7 +89,6 @@ const App = () => {
         sm={sm}
         md={md}
         lg={lg}
-        xl={xl}
         index={2}
         notTop={notTop}
       />
@@ -100,8 +96,6 @@ const App = () => {
         xs={xs}
         sm={sm}
         md={md}
-        lg={lg}
-        xl={xl}
         transition={transition}
         notTop={notTop}
       />

@@ -13,7 +13,7 @@ const writeUps = [
     name: "Honda",
     description:
       "A project done for Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
-    stack: ["JS", "HTML5", "CSS3", "Sass"]
+    stack: ["JS", "jQuery", "HTML5", "CSS3", "Sass", "Jira"]
   },
   {
     name: "Jubeck Brewery",
@@ -24,7 +24,7 @@ const writeUps = [
 ];
 
 const WriteUp = props => {
-  const { xs, sm, md, lg, xl, index, notTop } = props;
+  const { xs, sm, md, lg, index, notTop } = props;
   const [opacity, setOpacity] = useState(0);
   const [animate, setAnimate] = useState(false);
   const wui = writeUps[index];
@@ -42,32 +42,17 @@ const WriteUp = props => {
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "3em 1fr",
-      gridTemplateAreas: wui.name === "Honda" ?
-        xs ?
-          `
-      ". name name name name name name name . .    .    . "
+      gridTemplateAreas: xs ?
+        `
+      ". name name name name name name name . stac stac    . "
       ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
-            `
-      ". name name name name name name name . .    .    . "
-      ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
-              `
-      ". . name name name name name name . .    . . "
-      ". . desc desc desc desc desc desc . stac . . "` :
-              `
-      ". . . name name name name . .    . . . "
-      ". . . desc desc desc desc . stac . . . "`
-        :
-        xs ?
           `
-      ". name name name name name name name . .    .    . "
-      ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
-            `
       ". name name name name name name name . stac stac . "
       ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
-              `
-      ". . name name name name name name . . . . "
+            `
+      ". . name name name name name name . stac . . "
       ". . desc desc desc desc desc desc . stac . . "` :
-              `
+            `
       ". . . name name name name . stac . . . "
       ". . . desc desc desc desc . stac . . . "`,
       margin: xs || sm ? "4rem 0" : md ? "4rem 0" : "8rem 0",
@@ -94,15 +79,18 @@ const WriteUp = props => {
     },
     stack: {
       gridArea: "stac",
-      justifySelf: "end",
-      fontWeight: xs ? null : 300,
-      alignSelf: xs || wui.name === "Honda" ? "start" : sm || md || lg || xl ? "end" : "center",
+      fontWeight: 700,
+      color: "#4C857A",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      height: "100%",
     },
     skill: {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
-      lineHeight: wui.name === "Honda" && animate ? 2 : animate ? 1.5 : 2.5,
+      lineHeight: animate ? 1.5 : 2.5,
     }
   };
   return (
