@@ -79,11 +79,12 @@ const WriteUp = props => {
     },
     stack: {
       gridArea: "stac",
-      fontWeight: 700,
+      fontWeight: 500,
       color: "#4C857A",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
+      display: "grid",
+      alignContent: "space-between",
+      justifyContent: "end",
+      alignItems: "end",
       height: "100%",
     },
     skill: {
@@ -91,6 +92,7 @@ const WriteUp = props => {
       transition: "all 1s",
       opacity: animate ? 1 : 0,
       lineHeight: animate ? 1.5 : 2.5,
+      width: "min-content",
     }
   };
   return (
