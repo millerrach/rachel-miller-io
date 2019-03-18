@@ -38,7 +38,6 @@ const App = () => {
   const md = screenWidth >= 992 && screenWidth < 1200;
   const lg = screenWidth >= 1200 && screenWidth < 2560;
   const xl = screenWidth >= 2560 && screenWidth < 4000;
-  const belowOr1024 = screenWidth <= 1024;
   const transition = "transform 2s";
   const notTop = top !== 0;
 

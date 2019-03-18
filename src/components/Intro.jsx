@@ -67,7 +67,7 @@ const Intro = props => {
       alignSelf: "center",
       opacity: loaded ? 1 : 0,
       transition: "opacity 1s",
-      fontSize: xs ? "1.75em" : sm || md || lg ? "3.5em" : xl ? "4em" : "6em",
+      fontSize: xs ? "1.75em" : sm || md || lg ? "3.25em" : xl ? "4em" : "6em",
       fontWeight: xs ? null : 700,
     },
   };

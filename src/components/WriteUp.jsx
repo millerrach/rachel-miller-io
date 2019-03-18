@@ -12,7 +12,7 @@ const writeUps = [
   {
     name: "Honda",
     description:
-      "This project was done for Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
+      "A project done for Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
     stack: ["JS", "HTML5", "CSS3", "Sass"]
   },
   {
@@ -42,17 +42,32 @@ const WriteUp = props => {
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "3em 1fr",
-      gridTemplateAreas: xs ?
-        `
+      gridTemplateAreas: wui.name === "Honda" ?
+        xs ?
+          `
       ". name name name name name name name . .    .    . "
       ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
+            `
+      ". name name name name name name name . .    .    . "
+      ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
+              `
+      ". . name name name name name name . .    . . "
+      ". . desc desc desc desc desc desc . stac . . "` :
+              `
+      ". . . name name name name . .    . . . "
+      ". . . desc desc desc desc . stac . . . "`
+        :
+        xs ?
           `
+      ". name name name name name name name . .    .    . "
+      ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
+            `
       ". name name name name name name name . stac stac . "
       ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
-            `
+              `
       ". . name name name name name name . . . . "
       ". . desc desc desc desc desc desc . stac . . "` :
-            `
+              `
       ". . . name name name name . stac . . . "
       ". . . desc desc desc desc . stac . . . "`,
       margin: xs || sm ? "4rem 0" : md ? "4rem 0" : "8rem 0",
@@ -81,13 +96,13 @@ const WriteUp = props => {
       gridArea: "stac",
       justifySelf: "end",
       fontWeight: xs ? null : 300,
-      alignSelf: xs ? "start" : sm || md || lg || xl ? "end" : "center",
+      alignSelf: xs || wui.name === "Honda" ? "start" : sm || md || lg || xl ? "end" : "center",
     },
     skill: {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 2.5,
+      lineHeight: wui.name === "Honda" && animate ? 2 : animate ? 1.5 : 2.5,
     }
   };
   return (
