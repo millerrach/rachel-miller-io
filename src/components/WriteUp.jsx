@@ -82,7 +82,7 @@ const WriteUp = props => {
       fontWeight: 500,
       color: "#4C857A",
       display: "grid",
-      alignContent: "space-between",
+      alignContent: "space-around",
       justifyContent: "end",
       alignItems: "end",
       height: "100%",
