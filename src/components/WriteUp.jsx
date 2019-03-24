@@ -18,7 +18,7 @@ const writeUps = [
   {
     name: "Jubeck Brewery",
     description:
-      "This project was done for Jubeck New World Brewing so they can track their beer memberships. This web app allows them to add pints and growlers and also edit and renew memberships.",
+      "This project was done with Jubeck New World Brewing so they can track their beer memberships. This web app allows them to add pints and growlers and also edit and renew memberships.",
     stack: ["React", "Redux", "MUI", "JS", "CSS3", "Sass"]
   },
 ];
@@ -73,7 +73,6 @@ const WriteUp = props => {
       transition: "all 1s",
       transform: animate ? "translateY(0)" : "translateY(50px)",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 2.5,
       fontWeight: xs ? null : 300,
       letterSpacing: xs ? 0 : "1.5px",
     },
@@ -91,7 +90,6 @@ const WriteUp = props => {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
-      lineHeight: animate ? 1.5 : 2.5,
       width: "min-content",
     }
   };
