@@ -12,13 +12,13 @@ const writeUps = [
   {
     name: "Honda",
     description:
-      "A project done for Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
+      "A project done with Portlight Technologies. It’s a touch-screen app that‘s displayed at Honda dealerships. It allows the user to view available makes, models, specs, colors, trim levels and current offers.",
     stack: ["JS", "jQuery", "HTML5", "CSS3", "Sass", "Jira"]
   },
   {
     name: "Jubeck Brewery",
     description:
-      "This project was done with Jubeck New World Brewing so they can track their beer memberships. This web app allows them to add pints and growlers and also edit and renew memberships.",
+      "This project was done for Jubeck New World Brewing so they can track their beer memberships. This web app allows them to add pints and growlers and also edit and renew memberships.",
     stack: ["React", "Redux", "MUI", "JS", "CSS3", "Sass"]
   },
 ];
