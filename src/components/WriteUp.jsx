@@ -74,6 +74,7 @@ const WriteUp = props => {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       opacity: animate ? 1 : 0,
       fontWeight: xs ? null : 300,
+      lineHeight: 1.5,
       letterSpacing: xs ? 0 : "1.5px",
     },
     stack: {
@@ -90,6 +91,7 @@ const WriteUp = props => {
       transform: animate ? "translateY(0)" : "translateY(50px)",
       transition: "all 1s",
       opacity: animate ? 1 : 0,
+      lineHeight: 1.5,
       width: "min-content",
     }
   };
