@@ -13,6 +13,7 @@ const About = props => {
     const _toggle = () => {
         setGithub(!showGithub)
     }
+    const heading = { fontSize: xs ? "1.75rem" : sm || md || lg ? "2.5rem" : xl ? "3.5rem" : "5rem", fontWeight: 700 };
     const githubWidth = xs ? 35 : sm || md || lg ? 45 : xl ? 60 : 100;
     const styles = {
         About: {
@@ -49,9 +50,6 @@ const About = props => {
             ". amI amI amI amI . . . . . ."
             ". thx thx thx . .   . . . . ."
             ` ,
-        },
-        heading: {
-            fontSize: xs ? "1.75rem" : sm || md || lg ? "2.5rem" : xl ? "3.5rem" : "5rem", fontWeight: 700
         },
         skills: {
             position: "relative",
@@ -90,15 +88,15 @@ const About = props => {
             <img src={croatia} className="croatia" alt="croatia" style={styles.croatia} />
             <div className="scrollingText" style={styles.scrollingText}>
                 <div id="skills" style={styles.skills}>
-                    <div className="myStack" style={styles.heading}>My Stack</div>
+                    <div className="myStack" style={heading}>My Stack</div>
                     <div className="skills" style={{ paddingTop: "1em" }}>{skills.map((skill, i) => <div key={i}>{skill}</div>)}</div>
                 </div>
                 <div className="whereAmI" style={styles.whereAmI}>
-                    <div style={styles.heading}>Where am I?</div>
+                    <div style={heading}>Where am I?</div>
                     <div style={{ paddingTop: "1em", fontSize: xs ? "1.5rem" : sm || md || lg ? "2rem" : xl ? "2.75rem" : "4.25rem" }}>In the last 2 {'\u00BD'} years, my husband and I have lived in 16 countries but are soon to be settled in Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
-                    <div style={styles.heading}>Thank You.</div>
+                    <div style={heading}>Thank You.</div>
                     <div style={{ padding: "0.5em 0px 1.5em 0", fontWeight: 300 }}>mail@rachelmiller.io</div>
                     <div className="githubContainer" style={styles.githubContainer}>
                         <Github width={githubWidth} absolute={true} />
