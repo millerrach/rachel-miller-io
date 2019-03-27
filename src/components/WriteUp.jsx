@@ -37,7 +37,7 @@ const WriteUp = props => {
     setOpacity(1)
   }
   const styles = {
-    WriteUpStyle: {
+    WriteUp: {
       width: "100%",
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
@@ -55,7 +55,7 @@ const WriteUp = props => {
             `
       ". . . name name name name . stac . . . "
       ". . . desc desc desc desc . stac . . . "`,
-      margin: xs || sm ? "4rem 0" : md ? "4rem 0" : "8rem 0",
+      margin: xs || sm || md ? "5rem 0" : "10rem 0",
       opacity: opacity,
       transition: "all 2s",
       fontSize: xs ? null : sm || md ? "1.25rem" : "2rem",
@@ -96,7 +96,7 @@ const WriteUp = props => {
     }
   };
   return (
-    <div className="WriteUp" style={styles.WriteUpStyle}>
+    <div className="WriteUp" style={styles.WriteUp}>
       <div className="name" style={styles.name}>{wui.name}</div>
       <Waypoint onEnter={_trigger}>
         <div className="description" style={styles.description}>{wui.description}</div>

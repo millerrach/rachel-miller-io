@@ -38,13 +38,13 @@ const JubeckExamples = props => {
         },
         jubeck_1: {
             gridArea: "img1",
-            padding: xs ? "5rem 0" : sm ? "8rem 0" : "12rem 0",
+            padding: xs ? "7rem 0 5rem 0" : sm ? "10rem 0 8rem 0" : "14rem 0 12rem 0",
             transition: transition,
             transform: img1 ? "translateY(0)" : "translateY(50px)",
         },
         jubeck_2: {
             gridArea: "img2",
-            padding: xs ? "0 0 5rem 0" : sm ? "0 0 8rem 0" : "0 0 12rem 0",
+            paddingBottom: xs ? "7rem" : sm ? "10rem" : "14rem",
             transition: transition,
             transform: img2 ? "translateY(0)" : "translateY(50px)",
         },

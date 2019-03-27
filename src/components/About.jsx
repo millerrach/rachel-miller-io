@@ -76,6 +76,12 @@ const About = props => {
             justifyContent: "center",
             flexDirection: "column",
         },
+        email: {
+            padding: "0.5em 0px 1.5em 0",
+            fontWeight: 300,
+            color: "#fff",
+            textDecoration: "none",
+        },
         githubContainer: {
             opacity: showGithub ? 1 : 0,
             transition: "opacity 1s",
@@ -103,7 +109,7 @@ const About = props => {
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={styles.heading}>Thank You.</div>
-                    <div style={{ padding: "0.5em 0px 1.5em 0", fontWeight: 300 }}>mail@rachelmiller.io</div>
+                    <a className="email" style={styles.email} href="mailto:mail@rachelmiller.io" target="_blank" rel="noopener noreferrer">mail@rachelmiller.io</a>
                     <div className="githubContainer" style={styles.githubContainer}>
                         <Github width={socialWidth} absolute={true} />
                         <Codepen width={socialWidth} absolute={true} touchscreen={touchscreen} />
