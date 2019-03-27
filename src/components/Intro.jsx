@@ -5,9 +5,10 @@ import Github from "../images/links/github.jsx";
 
 
 const Intro = props => {
-  const { xs, sm, md, lg, xl, screenWidth } = props;
+  const { xs, sm, md, lg, xl, screenWidth, touchscreen } = props;
   const tablet = screenWidth > 760 && screenWidth < 1030;
   const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     setLoaded(true);
   }, []);
@@ -75,8 +76,8 @@ const Intro = props => {
     <div id="Intro" style={styles.Intro}>
       <div className="linkBar" style={styles.linkBar}>
         <div className="links" style={styles.links}>
-          <Github width={xs ? 28 : sm || md ? 30 : lg ? 35 : xl ? 45 : 60} absolute={false} />
-          <Email width={xs ? 25 : sm || md ? 27 : lg ? 32 : xl ? 42 : 57} />
+          <Github touchscreen={touchscreen} width={xs ? 28 : sm || md ? 30 : lg ? 35 : xl ? 45 : 60} absolute={false} />
+          <Email touchscreen={touchscreen} width={xs ? 25 : sm || md ? 27 : lg ? 32 : xl ? 42 : 57} />
         </div>
         {screenWidth > 600 ? <img src={down} alt="down" style={{ alignSelf: "end", justifySelf: tablet ? "end" : "center", width: xs ? 25 : sm || md ? 27 : lg ? 32 : xl ? 42 : 57 }} /> : null}
       </div>

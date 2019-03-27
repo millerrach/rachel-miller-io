@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 
-const github = props => {
+const Github = props => {
+    const { width, absolute, touchscreen } = props;
     const [hover, setHover] = useState(false);
-    const { width, absolute } = props;
     const styles = {
         github: {
             position: absolute ? "absolute" : null,
             transition: "all 500ms",
-            width: hover ? width + 5 : width,
+            width: hover && !touchscreen ? width + 5 : width,
         }
     }
     return (
@@ -25,4 +25,4 @@ const github = props => {
     )
 }
 
-export default github;
+export default Github;

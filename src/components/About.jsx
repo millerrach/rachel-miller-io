@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Waypoint } from 'react-waypoint';
 import croatia from '../images/about/croatia.jpg';
-import Github from '../images/links/github.jsx'
+import Github from '../images/links/github.jsx';
+import Codepen from './links/Codepen.jsx';
 
 
 
 const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
 
 const About = props => {
-    const { xs, sm, md, lg, xl } = props;
+    const { xs, sm, md, lg, xl, touchscreen } = props;
     const [showGithub, setGithub] = useState(false);
     const _toggle = () => {
         setGithub(!showGithub)
     }
-    const githubWidth = xs ? 35 : sm || md || lg ? 45 : xl ? 60 : 100;
+    const socialWidth = xs ? 30 : sm ? 40 : md || lg ? 45 : xl ? 60 : 100;
     const styles = {
         About: {
             color: "#fff",
@@ -21,6 +22,7 @@ const About = props => {
             position: "relative",
             fontSize: xs ? "1.5rem" : sm || md || lg ? "2rem" : xl ? "3rem" : "4.5rem",
             lineHeight: 1.25,
+            backgroundColor: "#4E334E",
         },
         croatia: {
             position: "sticky",
@@ -37,7 +39,7 @@ const About = props => {
                 `
             ". stc stc stc stc stc stc . . . ."
             ". amI amI amI amI amI amI . . . ."
-            ". thx thx thx thx .   . . . . ."
+            ". thx thx thx thx thx thx . . . ."
             ` : xl ?
                     `
             ". stc stc stc stc . . . . . ."
@@ -77,12 +79,14 @@ const About = props => {
         githubContainer: {
             opacity: showGithub ? 1 : 0,
             transition: "opacity 1s",
-            width: githubWidth,
+            display: "flex",
+            justifyContent: "space-between",
+            width: socialWidth * 2,
         },
         siteBottom: {
             position: "absolute",
             height: 5,
-            bottom: 0,
+            bottom: -1,
         }
     }
     return (
@@ -101,7 +105,8 @@ const About = props => {
                     <div style={styles.heading}>Thank You.</div>
                     <div style={{ padding: "0.5em 0px 1.5em 0", fontWeight: 300 }}>mail@rachelmiller.io</div>
                     <div className="githubContainer" style={styles.githubContainer}>
-                        <Github width={githubWidth} absolute={true} />
+                        <Github width={socialWidth} absolute={true} />
+                        <Codepen width={socialWidth} absolute={true} touchscreen={touchscreen} />
                     </div>
                     <Waypoint onEnter={_toggle} onLeave={_toggle}>
                         <div className="siteBottom" style={styles.siteBottom}></div>

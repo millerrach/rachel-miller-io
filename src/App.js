@@ -9,7 +9,8 @@ import About from './components/About.jsx'
 
 const App = () => {
 
-  let [top, setTop] = useState(0);
+  const [top, setTop] = useState(0);
+  const [touchscreen, setTouchscreen] = useState(false);
 
   const getSize = () => {
     return {
@@ -32,6 +33,10 @@ const App = () => {
     };
   }, []);
 
+  window.addEventListener('touchstart', function () {
+    setTouchscreen(true);
+  });
+
   const screenWidth = windowSize.innerWidth;
   const xs = screenWidth < 768;
   const sm = screenWidth >= 768 && screenWidth < 992;
@@ -50,6 +55,7 @@ const App = () => {
         lg={lg}
         xl={xl}
         screenWidth={screenWidth}
+        touchscreen={touchscreen}
       />
       <WriteUp
         xs={xs}
@@ -105,6 +111,7 @@ const App = () => {
         md={md}
         lg={lg}
         xl={xl}
+        touchscreen={touchscreen}
       />
     </div>
   );

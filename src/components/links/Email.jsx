@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 
-const email = props => {
+const Email = props => {
+    const { width, touchscreen } = props;
     const [hover, setHover] = useState(false);
     const styles = {
         email: {
             transition: "all 500ms",
-            width: hover ? props.width + 5 : props.width,
+            width: hover && !touchscreen ? width + 5 : width,
         }
     }
     return (
@@ -23,4 +24,4 @@ const email = props => {
     )
 }
 
-export default email;
+export default Email;
