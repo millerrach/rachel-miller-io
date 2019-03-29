@@ -7,7 +7,7 @@ const writeUps = [
     name: "Juiceline",
     description:
       "Made for a juice company in Budapest, Hungary. A progressive web app that allows customers to see what's offered at the current moment.",
-    stack: ["Figma", "React", "JS", "CSS3", "Sass"]
+    stack: ["React", "JS", "CSS3", "Sass", "Figma"]
   },
   {
     name: "Honda",

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Waypoint } from 'react-waypoint';
 import croatia from '../images/about/croatia.jpg';
-import Github from '../images/links/github.jsx';
+import Github from './links/Github.jsx';
 import Codepen from './links/Codepen.jsx';
 
 
 
-const skills = ['React', 'JS', 'HTML5', 'CSS3', 'Material UI', 'Sass', 'Figma', 'Sketch', 'Git'];
+const skills = ["React", "JavaScript", "Redux", "HTML5", "CSS3", "Sass", "Material UI", "Bootstrap", "Git", "Jira", "Figma", "Sketch"];
 
 const About = props => {
     const { xs, sm, md, lg, xl, touchscreen } = props;

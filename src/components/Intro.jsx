@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import down from "../images/down.svg";
-import Email from "../images/links/email.jsx";
-import Github from "../images/links/github.jsx";
+import Email from "./links/Email.jsx";
+import Github from "./links/Github.jsx";
 
 
 const Intro = props => {

@@ -6,3 +6,4 @@ yarn.lock
 *.map
 yarn-error.log
 src/serviceWorker.js
+*build
