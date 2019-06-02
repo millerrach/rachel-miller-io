@@ -6,7 +6,7 @@ import Codepen from './links/Codepen.jsx';
 
 
 
-const skills = ["React", "JavaScript", "Redux", "HTML5", "CSS3", "Sass", "Material UI", "Bootstrap", "Git", "Jira", "Figma", "Sketch"];
+const skills = ["React", "JavaScript", "HTML5", "CSS3", "Sass", "Material UI", "Git", "Figma", "Sketch"];
 
 const About = props => {
     const { xs, sm, md, lg, xl, touchscreen } = props;
@@ -105,7 +105,7 @@ const About = props => {
                 </div>
                 <div className="whereAmI" style={styles.whereAmI}>
                     <div style={styles.heading}>Where am I?</div>
-                    <div style={{ paddingTop: "1em", fontSize: xs ? "1.5rem" : sm || md || lg ? "2rem" : xl ? "2.75rem" : "4.25rem" }}>In the last 2 {'\u00BD'} years, my husband and I have lived in 16 countries but are soon to be settled in Minneapolis, MN.</div>
+                    <div style={{ paddingTop: "1em", fontSize: xs ? "1.5rem" : sm || md || lg ? "2rem" : xl ? "2.75rem" : "4.25rem" }}>In the last 2 {'\u00BD'} years, my husband and I have lived in 16 countries but are now happily settled in Minneapolis, MN.</div>
                 </div>
                 <div className="thanks" style={styles.thanks}>
                     <div style={styles.heading}>Thank You.</div>
