@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
     "react-waypoint": "^9.0.0",
+    "styled-components": "^4.3.1",
     "typeface-roboto": "^0.0.54"
   },
   "scripts": {

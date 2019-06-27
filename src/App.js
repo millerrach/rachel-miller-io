@@ -4,7 +4,7 @@ import WriteUp from "./components/WriteUp.jsx";
 import JuicelineExamples from './components/JuicelineExamples.jsx';
 import HondaExamples from './components/HondaExamples.jsx';
 import JubeckExamples from './components/JubeckExamples.jsx';
-import About from './components/About.jsx'
+import About from './components/About.jsx';
 
 
 const App = () => {
@@ -56,6 +56,7 @@ const App = () => {
         xl={xl}
         screenWidth={screenWidth}
         touchscreen={touchscreen}
+        color="orange"
       />
       <WriteUp
         xs={xs}

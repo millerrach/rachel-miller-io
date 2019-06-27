@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Waypoint } from 'react-waypoint';
+import styled from 'styled-components';
 
 
 const writeUps = [
@@ -32,79 +33,77 @@ const WriteUp = props => {
   useEffect(() => {
     if (notTop) { setAnimate(true) }
   }, [notTop]);
-  const _trigger = () => {
+  const trigger = () => {
     setAnimate(true);
     setOpacity(1)
   }
-  const styles = {
-    WriteUp: {
-      width: "100%",
-      display: "grid",
-      gridTemplateColumns: "repeat(12, 1fr)",
-      gridTemplateRows: "3em 1fr",
-      gridTemplateAreas: xs ?
+  const WriteUpWrapper = styled.div`
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 3em 1fr;
+      grid-template-areas: ${xs ?
+      `
+  ". name name name name name name name . stac stac    . "
+  ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
         `
-      ". name name name name name name name . stac stac    . "
-      ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
+  ". name name name name name name name . stac stac . "
+  ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
           `
-      ". name name name name name name name . stac stac . "
-      ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
-            `
-      ". . name name name name name name . stac . . "
-      ". . desc desc desc desc desc desc . stac . . "` :
-            `
-      ". . . name name name name . stac . . . "
-      ". . . desc desc desc desc . stac . . . "`,
-      margin: xs || sm || md ? "5rem 0" : "10rem 0",
-      opacity: opacity,
-      transition: "all 2s",
-      fontSize: xs ? null : sm || md ? "1.25rem" : "2rem",
-    },
-    name: {
-      gridArea: "name",
-      transition: "all 1s",
-      transform: animate ? "translateY(0)" : "translateY(50px)",
-      opacity: animate ? 1 : 0,
-      fontSize: xs ? "1.5rem" : sm || md ? "1.75rem" : "3rem",
-    },
-    description: {
-      gridArea: "desc",
-      alignSelf: "end",
-      transition: "all 1s",
-      transform: animate ? "translateY(0)" : "translateY(50px)",
-      opacity: animate ? 1 : 0,
-      fontWeight: xs ? null : 300,
-      lineHeight: 1.5,
-      letterSpacing: xs ? 0 : "1.5px",
-    },
-    stack: {
-      gridArea: "stac",
-      fontWeight: 500,
-      color: "#4C857A",
-      display: "grid",
-      alignContent: "space-around",
-      justifyContent: "end",
-      alignItems: "end",
-      height: "100%",
-    },
-    skill: {
-      transform: animate ? "translateY(0)" : "translateY(50px)",
-      transition: "all 1s",
-      opacity: animate ? 1 : 0,
-      lineHeight: 1.5,
-      width: "min-content",
+  ". . name name name name name name . stac . . "
+  ". . desc desc desc desc desc desc . stac . . "` :
+          `
+  ". . . name name name name . stac . . . "
+  ". . . desc desc desc desc . stac . . . "`};
+      margin: ${xs || sm || md ? "5rem 0" : "10rem 0"};
+      opacity: ${opacity};
+      transition: all 2s;
+      font-size: ${xs ? null : sm || md ? "1.25rem" : "2rem"};
+    .name {
+      grid-area: name;
+      transition: all 1s;
+      transform: ${animate ? "translateY(0)" : "translateY(50px)"};
+      opacity: ${animate ? 1 : 0};
+      font-size: ${xs ? "1.5rem" : sm || md ? "1.75rem" : "3rem"};
     }
-  };
+    .description {
+      grid-area: desc;
+      align-self: end;
+      transition: all 1s;
+      transform: ${animate ? "translateY(0)" : "translateY(50px)"};
+      opacity: ${animate ? 1 : 0};
+      font-weight: ${xs ? null : 300};
+      line-height: 1.5;
+      letter-spacing: ${xs ? 0 : "1.5px"};
+    }
+    .stack {
+      grid-area: stac;
+      font-weight: 500;
+      color: #4C857A;
+      display: grid;
+      align-content: space-around;
+      justify-content: end;
+      align-items: end;
+      height: 100%;
+    }
+    .skill {
+      transform: ${animate ? "translateY(0)" : "translateY(50px)"};
+      transition: all 1s;
+      opacity: ${animate ? 1 : 0};
+      line-height: 1.5;
+      width: min-content;
+    }
+  `
   return (
-    <div className="WriteUp" style={styles.WriteUp}>
-      <div className="name" style={styles.name}>{wui.name}</div>
-      <Waypoint onEnter={_trigger}>
-        <div className="description" style={styles.description}>{wui.description}</div>
+    <WriteUpWrapper className="WriteUp">
+      <div className="name">{wui.name}</div>
+      <Waypoint onEnter={trigger}>
+        <div className="description">{wui.description}</div>
       </Waypoint>
-      <div className="stack" style={styles.stack}>
-        {skills.map((skill, i) => <div key={i} style={styles.skill}>{skill}</div>)}
+      <div className="stack">
+        {skills.map((skill, i) => <div key={i}>{skill}</div>)}
       </div>
-    </div>
+    </WriteUpWrapper>
   );
 }
 
