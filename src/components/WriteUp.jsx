@@ -2,6 +2,63 @@ import React, { useState, useEffect } from "react";
 import { Waypoint } from 'react-waypoint';
 import styled from 'styled-components';
 
+const WriteUpWrapper = styled.div`
+width: 100%;
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+grid-template-rows: 3em 1fr;
+grid-template-areas: ${props => props.xs ?
+    `
+". name name name name name name name . stac stac    . "
+". desc desc desc desc desc desc desc . stac stac . "` : props.sm || props.md ?
+      `
+". name name name name name name name . stac stac . "
+". desc desc desc desc desc desc desc . stac stac . "` : props.lg ?
+        `
+". . name name name name name name . stac . . "
+". . desc desc desc desc desc desc . stac . . "` :
+        `
+". . . name name name name . stac . . . "
+". . . desc desc desc desc . stac . . . "`};
+margin: ${props => props.xs || props.sm || props.md ? "5rem 0" : "10rem 0"};
+opacity: ${props => props.opacity};
+transition: all 2s;
+font-size: ${props => props.xs ? null : props.sm || props.md ? "1.25rem" : "2rem"};
+.name {
+grid-area: name;
+transition: all 1s;
+transform: ${props => props.animate ? "translateY(0)" : "translateY(50px)"};
+opacity: ${props => props.animate ? 1 : 0};
+font-size: ${props => props.xs ? "1.5rem" : props.sm || props.md ? "1.75rem" : "3rem"};
+}
+.description {
+grid-area: desc;
+align-self: end;
+transition: all 1s;
+transform: ${props => props.animate ? "translateY(0)" : "translateY(50px)"};
+opacity: ${props => props.animate ? 1 : 0};
+font-weight: ${props => props.xs ? null : 300};
+line-height: 1.5;
+letter-spacing: ${props => props.xs ? 0 : "1.5px"};
+}
+.stack {
+grid-area: stac;
+font-weight: 500;
+color: #4C857A;
+display: grid;
+align-content: space-around;
+justify-content: end;
+align-items: end;
+height: 100%;
+}
+.skill {
+transform: ${props => props.animate ? "translateY(0)" : "translateY(50px)"};
+transition: all 1s;
+opacity: ${props => props.animate ? 1 : 0};
+line-height: 1.5;
+width: min-content;
+}
+`
 
 const writeUps = [
   {
@@ -23,7 +80,6 @@ const writeUps = [
     stack: ["React", "Redux", "MUI", "JS", "CSS3", "Sass"]
   },
 ];
-
 const WriteUp = props => {
   const { xs, sm, md, lg, index, notTop } = props;
   const [opacity, setOpacity] = useState(0);
@@ -37,65 +93,9 @@ const WriteUp = props => {
     setAnimate(true);
     setOpacity(1)
   }
-  const WriteUpWrapper = styled.div`
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 3em 1fr;
-      grid-template-areas: ${xs ?
-      `
-  ". name name name name name name name . stac stac    . "
-  ". desc desc desc desc desc desc desc . stac stac . "` : sm || md ?
-        `
-  ". name name name name name name name . stac stac . "
-  ". desc desc desc desc desc desc desc . stac stac . "` : lg ?
-          `
-  ". . name name name name name name . stac . . "
-  ". . desc desc desc desc desc desc . stac . . "` :
-          `
-  ". . . name name name name . stac . . . "
-  ". . . desc desc desc desc . stac . . . "`};
-      margin: ${xs || sm || md ? "5rem 0" : "10rem 0"};
-      opacity: ${opacity};
-      transition: all 2s;
-      font-size: ${xs ? null : sm || md ? "1.25rem" : "2rem"};
-    .name {
-      grid-area: name;
-      transition: all 1s;
-      transform: ${animate ? "translateY(0)" : "translateY(50px)"};
-      opacity: ${animate ? 1 : 0};
-      font-size: ${xs ? "1.5rem" : sm || md ? "1.75rem" : "3rem"};
-    }
-    .description {
-      grid-area: desc;
-      align-self: end;
-      transition: all 1s;
-      transform: ${animate ? "translateY(0)" : "translateY(50px)"};
-      opacity: ${animate ? 1 : 0};
-      font-weight: ${xs ? null : 300};
-      line-height: 1.5;
-      letter-spacing: ${xs ? 0 : "1.5px"};
-    }
-    .stack {
-      grid-area: stac;
-      font-weight: 500;
-      color: #4C857A;
-      display: grid;
-      align-content: space-around;
-      justify-content: end;
-      align-items: end;
-      height: 100%;
-    }
-    .skill {
-      transform: ${animate ? "translateY(0)" : "translateY(50px)"};
-      transition: all 1s;
-      opacity: ${animate ? 1 : 0};
-      line-height: 1.5;
-      width: min-content;
-    }
-  `
+
   return (
-    <WriteUpWrapper className="WriteUp">
+    <WriteUpWrapper className="WriteUp" {...props} opacity={opacity} animate={animate}>
       <div className="name">{wui.name}</div>
       <Waypoint onEnter={trigger}>
         <div className="description">{wui.description}</div>

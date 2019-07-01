@@ -11,6 +11,7 @@ const App = () => {
 
   const [top, setTop] = useState(0);
   const [touchscreen, setTouchscreen] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const getSize = () => {
     return {
@@ -26,6 +27,7 @@ const App = () => {
   }
 
   useEffect(() => {
+    setLoaded(true);
     setTop(window.scrollY);
     window.addEventListener('resize', handleResize);
     return () => {
@@ -54,9 +56,9 @@ const App = () => {
         md={md}
         lg={lg}
         xl={xl}
+        loaded={loaded}
         screenWidth={screenWidth}
         touchscreen={touchscreen}
-        color="orange"
       />
       <WriteUp
         xs={xs}
